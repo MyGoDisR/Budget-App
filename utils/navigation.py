@@ -52,7 +52,7 @@ def authenticated_menu():
             st.page_link(f"pages/land.py", label=translations["sixth_page"][st.session_state.lang]) 
     
         st.divider()
-        st.write(f"  {translations["welcome"][st.session_state.lang]} {st.session_state['role_']}!")
+        st.write(f'  {translations["welcome"][st.session_state.lang]} {st.session_state["role_"]}!')
         st.write(f'  {translations["today"][st.session_state.lang]} {datetime.today().strftime("%Y-%m-%d")}')
         st.write(f'  {translations["refresh"][st.session_state.lang]} TBD')
         st.divider()
