@@ -383,8 +383,6 @@ def data_to_df():
     #df_bnp_2.loc[df_bnp_2['Type'].str.contains("OPŁATA - PRZELEW NATYCH. WYCH.", case=False, na=False), 'Type'] = "Outflow"
     #df_bnp_2.loc[df_bnp_2['Type'].str.contains("KAPIT.ODSETEK KARNYCH-OBCIĄŻENIE", case=False, na=False), 'Type'] = "Outflow"
 
-    
-
     df_bnp_2.loc[df_bnp_2['Desc'].str.contains(pattern_food, case=False, na=False), 'Tags'] = 'Food'
     df_bnp_2.loc[df_bnp_2['Desc'].str.contains(pattern_home, case=False, na=False), 'Tags'] = 'House appliencies'
     df_bnp_2.loc[df_bnp_2['Desc'].str.contains(pattern_beauty, case=False, na=False), 'Tags'] = 'Beauty'
@@ -571,83 +569,83 @@ def fixing_type(your_df):
 #### Streamlit Uploaded Files ###########################################################################################################################################
 
 def streamlit_uploaded_file(uploaded_file):
-    with open(os.path.join(f"Data/{st.session_state.role_}/Transactions/Loaded",uploaded_file.name),"wb") as f:
-        f.write(uploaded_file.getbuffer())
-    st.success("File Saved")
+  with open(os.path.join(f"Data/{st.session_state.role_}/Transactions/Loaded",uploaded_file.name),"wb") as f:
+    f.write(uploaded_file.getbuffer())
+  st.success("File Saved")
 
 #### Loading user csv files #############################################################################################################################################
 
 def csv_user_load():
-    path_to_user_loaded_files = f'Data/{st.session_state.role_}/Transactions/Loaded'
-    archive_path = f'Data/{st.session_state.role_}/Transactions/Archived'
-    processed_files = f'Data/{st.session_state.role_}/Transactions/Processed'
+  path_to_user_loaded_files = f'Data/{st.session_state.role_}/Transactions/Loaded'
+  archive_path = f'Data/{st.session_state.role_}/Transactions/Archived'
+  processed_files = f'Data/{st.session_state.role_}/Transactions/Processed'
 
-    if len(path_to_user_loaded_files) == 0 and 'final_output.csv' in processed_files:
-      return
-    elif len(path_to_user_loaded_files) == 0 and 'final_output.csv' not in processed_files:
-      return st.write('No data was processed yet, please upload the data')
-    else:
-      df_main = pd.DataFrame()
+  if len(path_to_user_loaded_files) == 0 and 'final_output.csv' in processed_files:
+    return
+  elif len(path_to_user_loaded_files) == 0 and 'final_output.csv' not in processed_files:
+    return st.write('No data was processed yet, please upload the data')
+  else:
+    df_main = pd.DataFrame()
 
-      for index, file_name in enumerate(os.listdir(path_to_user_loaded_files)):
-          if '.csv' in file_name:
-              # Display the filtered dat
-              df = pd.read_csv(path_to_user_loaded_files+f'/{file_name}')
-              df_main = pd.concat([df_main,df])
-              os.replace(path_to_user_loaded_files+f'/{file_name}', archive_path+f'/{file_name}')
+    for index, file_name in enumerate(os.listdir(path_to_user_loaded_files)):
+      if '.csv' in file_name:
+        # Display the filtered dat
+        df = pd.read_csv(path_to_user_loaded_files+f'/{file_name}')
+        df_main = pd.concat([df_main,df])
+        os.replace(path_to_user_loaded_files+f'/{file_name}', archive_path+f'/{file_name}')
 
-      if len(df_main) > 0:
-          df_main.sort_values(by='Date', ascending=True, inplace=True)
-          if index > 0:
-              df_main.drop_duplicates(inplace=True, subset=['Date','Desc','Amount','Ref'])
-          df_main.reset_index(inplace=True, drop=True)
+    if len(df_main) > 0:
+      df_main.sort_values(by='Date', ascending=True, inplace=True)
+      if index > 0:
+        df_main.drop_duplicates(inplace=True, subset=['Date','Desc','Amount','Ref'])
+      df_main.reset_index(inplace=True, drop=True)
 
-          if len(os.listdir(processed_files)) > 0:
-              df = pd.read_csv(processed_files+f'/{os.listdir(processed_files)[0]}')
-              df_main = pd.concat([df, df_main])
-              df_main.sort_values(by='Date', ascending=True, inplace=True)
-              df_main.drop_duplicates(inplace=True, subset=['Date','Desc','Amount','Ref'])
-              df_main.reset_index(inplace=True, drop=True)
+    if len(os.listdir(processed_files)) > 0:
+      df = pd.read_csv(processed_files+f'/{os.listdir(processed_files)[0]}')
+      df_main = pd.concat([df, df_main])
+      df_main.sort_values(by='Date', ascending=True, inplace=True)
+      df_main.drop_duplicates(inplace=True, subset=['Date','Desc','Amount','Ref'])
+      df_main.reset_index(inplace=True, drop=True)
 
-          df_main.to_csv(f'{processed_files}/final_output.csv', index=False)
-          #loaded_date = datetime.today().strftime("%Y-%m-%d")
+    df_main.to_csv(f'{processed_files}/final_output.csv', index=False)
+    #loaded_date = datetime.today().strftime("%Y-%m-%d")
           
-      df_main = pd.read_csv(f'{processed_files}/final_output.csv', )
-      return #, loaded_date
+    df_main = pd.read_csv(f'{processed_files}/final_output.csv', )
+    return #, loaded_date
 
 #### Loading user pdf files #############################################################################################################################################
 
 def pdf_user_load():
-    if len(os.listdir(f'Data/{st.session_state.role_}/Transactions/Loaded')) == 0:
-       return pd.read_csv(f'Data/{st.session_state.role_}/Transactions/Processed/final_output.csv')
-    path_to_user_loaded_files = f'Data/{st.session_state.role_}/Transactions/Loaded'
-    archive_path = f'Data/{st.session_state.role_}/Transactions/Archived'
-    processed_files = f'Data/{st.session_state.role_}/Transactions/Processed'
+  if len(os.listdir(f'Data/{st.session_state.role_}/Transactions/Loaded')) == 0:
+    return pd.read_csv(f'Data/{st.session_state.role_}/Transactions/Processed/final_output.csv')
+  path_to_user_loaded_files = f'Data/{st.session_state.role_}/Transactions/Loaded'
+  archive_path = f'Data/{st.session_state.role_}/Transactions/Archived'
+  processed_files = f'Data/{st.session_state.role_}/Transactions/Processed'
 
-    df_main = pd.DataFrame()
+  df_main = pd.DataFrame()
 
-    for index, file_name in enumerate(os.listdir(path_to_user_loaded_files)):
-        if '.pdf' in file_name:
-            # Display the filtered dat
-            df = pd.read_csv(path_to_user_loaded_files+f'/{file_name}')
-            df_main = pd.concat([df_main,df])
-            os.replace(path_to_user_loaded_files+f'/{file_name}', archive_path+f'/{file_name}')
+  for index, file_name in enumerate(os.listdir(path_to_user_loaded_files)):
+    if '.pdf' in file_name:
+      # Display the filtered dat
+      df = pd.read_csv(path_to_user_loaded_files+f'/{file_name}')
+      df_main = pd.concat([df_main,df])
+      os.replace(path_to_user_loaded_files+f'/{file_name}', archive_path+f'/{file_name}')
 
-    if len(df_main) > 0:
-        df_main.sort_values(by='Date', ascending=True, inplace=True)
-        if index > 0:
-            df_main.drop_duplicates(inplace=True, subset=['Date','Desc','Amount','Ref'])
-        df_main.reset_index(inplace=True, drop=True)
+  if len(df_main) > 0:
+    df_main.sort_values(by='Date', ascending=True, inplace=True)
+    if index > 0:
+      df_main.drop_duplicates(inplace=True, subset=['Date','Desc','Amount','Ref'])
+    df_main.reset_index(inplace=True, drop=True)
 
-        if len(os.listdir(processed_files)) > 0:
-            df = pd.read_csv(processed_files+f'/{os.listdir(processed_files)[0]}')
-            df_main = pd.concat([df, df_main])
-            df_main.sort_values(by='Date', ascending=True, inplace=True)
-            df_main.drop_duplicates(inplace=True, subset=['Date','Desc','Amount','Ref'])
-            df_main.reset_index(inplace=True, drop=True)
+    if len(os.listdir(processed_files)) > 0:
+      df = pd.read_csv(processed_files+f'/{os.listdir(processed_files)[0]}')
+      df_main = pd.concat([df, df_main])
+      df_main.sort_values(by='Date', ascending=True, inplace=True)
+      df_main.drop_duplicates(inplace=True, subset=['Date','Desc','Amount','Ref'])
+      df_main.reset_index(inplace=True, drop=True)
 
-        df_main.to_csv(f'{processed_files}/final_output.csv', index=False)
-        #loaded_date = datetime.today().strftime("%Y-%m-%d")
+    df_main.to_csv(f'{processed_files}/final_output.csv', index=False)
+    # loaded_date = datetime.today().strftime("%Y-%m-%d")
         
-    df_main = pd.read_csv(f'{processed_files}/final_output.csv', )
-    return df_main #, loaded_date
+  df_main = pd.read_csv(f'{processed_files}/final_output.csv', )
+  return df_main #, loaded_date

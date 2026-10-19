@@ -11,3 +11,5 @@ utils/__pycache__
 !README.md
 !.gitignore
 !.streamlit/*
+
+.databricks

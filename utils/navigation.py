@@ -60,6 +60,7 @@ def authenticated_menu():
         st.subheader(translations["profile"][st.session_state.lang])
         st.page_link(f"pages/yearly.py", label=translations["first_page"][st.session_state.lang])
         st.page_link(f"pages/monthly.py", label=translations["second_page"][st.session_state.lang])
+        st.page_link(f"pages/yearly2.py", label='Financial Monthly 2')
 
         # Creating conection to db
         conn = sqlite3.connect("db/users_.db")

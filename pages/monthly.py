@@ -121,111 +121,129 @@ else:
         df_selected_year = list_[2][year]
         selection = st.pills(translations["sel_month"][st.session_state.lang], list(map(months2.get, df_selected_year['Month'].unique())), selection_mode="multi", key=f'month_pill_{list_[1][year]}')
         if selection:
-          # Dataframe current selected month and year and specific filters
-          df_curr_month = df_selected_year[df_selected_year['Month'].isin(map(months.get, selection))]
+            # Dataframe current selected month and year and specific filters
+            df_curr_month = df_selected_year[df_selected_year['Month'].isin(map(months.get, selection))]
 
-          # KPI's
-          KPI_list = [
-              [translations["expenses"][st.session_state.lang], df_curr_month[df_curr_month['Tags'] != 'Inflows']['Amount'].sum()],
-              [translations["income"][st.session_state.lang], df_curr_month[df_curr_month['Tags'] == 'Inflows']['Amount'].sum()],
-              [translations["food_e"][st.session_state.lang], df_curr_month[(df_curr_month['Tags'] != 'Inflows') & (df_curr_month['Tags'] == 'Food')]['Amount'].sum()],
-              [translations["house_e"][st.session_state.lang], df_curr_month[(df_curr_month['Tags'] != 'Inflows') & (df_curr_month['Tags'] == 'House appliencies')]['Amount'].sum()],
-              [translations["beauty_e"][st.session_state.lang], df_curr_month[(df_curr_month['Tags'] != 'Inflows') & (df_curr_month['Tags'] == 'Beauty')]['Amount'].sum()],
-              [translations["other_e"][st.session_state.lang], df_curr_month[(df_curr_month['Tags'] != 'Inflows') & (df_curr_month['Tags'] == 'Others')]['Amount'].sum()]
-          ]
-          # There will be a KPI's which gives the rough indicator
-          row1 = st.columns(3)
-          row2 = st.columns(3)
+            # KPI's
+            KPI_list = [
+                [translations["expenses"][st.session_state.lang], df_curr_month[df_curr_month['Tags'] != 'Inflows']['Amount'].sum()],
+                [translations["income"][st.session_state.lang], df_curr_month[df_curr_month['Tags'] == 'Inflows']['Amount'].sum()],
+                [translations["food_e"][st.session_state.lang], df_curr_month[df_curr_month['Tags'] == 'Food']['Amount'].sum()],
+                [translations["house_e"][st.session_state.lang], df_curr_month[df_curr_month['Tags'] == 'House appliencies']['Amount'].sum()],
+                [translations["beauty_e"][st.session_state.lang], df_curr_month[df_curr_month['Tags'] == 'Beauty']['Amount'].sum()],
+                [translations["other_e"][st.session_state.lang], df_curr_month[df_curr_month['Tags'] == 'Others']['Amount'].sum()]
+            ]
 
-          for index, col in enumerate(row1 + row2):
-              title = col.container(height=120)
-              title.metric(KPI_list[index][0], str(round(KPI_list[index][1],2)) + " " + currency_icon)
-          # Filters based on Tags 
-          categories = st.multiselect(translations["sel_tags"][st.session_state.lang], options=df_curr_month['Tags'].unique(), default=df_curr_month['Tags'].unique(), key=f'type_filter_{list_[1][year]}')
-          df_filtered = df_curr_month[df_curr_month['Tags'].isin(categories)]
-          # Table Header
-          st.write(translations["title_1"][st.session_state.lang])
-          ############## TABLE ##############################################################################################################################################
-          st.dataframe(df_filtered.reset_index(drop=True).iloc[:,[0,1,4,3]], use_container_width=True)
-          ############## Bar Chart ##########################################################################################################################################
-          st.write(f'### {translations["title_2"][st.session_state.lang]}')
-          df_bar_chart = df_filtered.groupby(['WeekNo', 'Tags'], as_index=False)['Amount'].sum()
-          df_bar_chart['% of all'] = round(df_bar_chart['Amount'] / df_bar_chart.groupby('WeekNo')['Amount'].transform(func=sum) * 100,2)
-          chart = alt.Chart(df_bar_chart).mark_bar().encode(
-            x=alt.X('WeekNo:O', title='Week'),
-            y=alt.Y('Amount:Q', title = None),
-            color=alt.Color('Tags:N', title='Tags'),  # Color
-            tooltip=['WeekNo', 'Tags', 'sum(Amount)', '% of all'],  # Tooltip
-            text=alt.Text('sum(Amount):Q', format='.0f')
-          )
-          st.altair_chart(chart, use_container_width=True)
+            # KPI's
+            KPI_bar_chart = [
+                df_curr_month[df_curr_month['Tags'] != 'Inflows'].groupby(pd.Grouper(key='Date', axis=0, freq='D'))['Amount'].sum(),
+                df_curr_month[df_curr_month['Tags'] == 'Inflows'].groupby(pd.Grouper(key='Date', axis=0, freq='D'))['Amount'].sum(),
+                df_curr_month[df_curr_month['Tags'] == 'Food'].groupby(pd.Grouper(key='Date', axis=0, freq='D'))['Amount'].sum(),
+                df_curr_month[df_curr_month['Tags'] == 'House appliencies'].groupby(pd.Grouper(key='Date', axis=0, freq='D'))['Amount'].sum(),
+                df_curr_month[df_curr_month['Tags'] == 'Beauty'].groupby(pd.Grouper(key='Date', axis=0, freq='D'))['Amount'].sum(),
+                df_curr_month[df_curr_month['Tags'] == 'Others'].groupby(pd.Grouper(key='Date', axis=0, freq='D'))['Amount'].sum(),
+            ]
 
-          st.write(f'### {translations["title_3"][st.session_state.lang]}')
-          df_filtered['Day_name'] = df_filtered['Date'].dt.day_name()
-          df_table = df_filtered[df_filtered['Tags'] != "Inflows"]
-          df_table['Date'] = pd.to_datetime(df_table['Date']).dt.date
-          spend_map = df_table.groupby('Date')['Amount'].sum().to_dict()
+            # There will be a KPI's which gives the rough indicator
+            row1 = st.columns(3)
+            row2 = st.columns(3)
+            #row3 = st.columns(2)
 
-          df_week = df_filtered.groupby(['Day_name','Tags'], as_index=False)['Amount'].sum()
-          weekday_order = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-
-          chart = alt.Chart(df_week[df_week['Tags'].isin(categories)]).mark_bar().encode(
-                  x=alt.X('Day_name:O', title='Days', sort=weekday_order),
-                  y=alt.Y('Amount:Q', title = None),
-                  color=alt.Color('Tags:N', title='Tags'),  # Color
-                  tooltip=['Day_name', 'Tags', 'Amount']  # Tooltip
-              )
-
-          # Display the chart in Streamlit
-          st.altair_chart(chart, use_container_width=True)
-          latest_month = (df_filtered['Month'].unique()[-1])
-          selection_ = st.pills(translations["sel_month"][st.session_state.lang], list(map(months2.get, df_filtered['Month'].unique())), selection_mode="single", key=f'month_pills_{list_[1][year]}_')
-          if selection_:
-            df_cal_month = df_filtered[df_filtered['Month'] == months[selection_]]
-          else:
-            df_cal_month = df_filtered[df_filtered['Month'] == latest_month]
-          df_cal_month.reset_index(drop=True, inplace=True)
-          year = df_cal_month['Year'][0]
-          month = df_cal_month['Month'][0]
-          days_in_month = calendar.monthrange(year, month)[1]
-          dates = [date(year, month, day) for day in range(1, days_in_month + 1)]
-
-          calendar_rows = []
-          week = [''] * 7 
-          for dt in dates:
-              dow = dt.weekday() 
-              content = f"[{dt.day}]\n${spend_map.get(dt, 0):.2f}"
-              week[dow] = content
-
-              if dow == 6 or dt.day == days_in_month:
-                  calendar_rows.append(week)
-                  week = [''] * 7 
-
-          calendar_df = pd.DataFrame(calendar_rows, columns=["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"])
-
-          def extract_amount(cell):
-            try:
-                return round(float(cell.split('$')[1]),2)
-            except:
-                return 0.00
-            
+            for index, col in enumerate(row1 + row2):#: + row3):
+                title = col.container(height=250)
+                title.metric(KPI_list[index][0], 
+                            str(round(KPI_list[index][1],2)) + " " + currency_icon)
+                            #chart_data=KPI_bar_chart[index], chart_type="line", delta_color="inverse")
+                title.bar_chart(KPI_bar_chart[index], height=150)
+                
           
-          st.write(f'### {translations["title_4"][st.session_state.lang]} {year}-{months2[latest_month] if selection_ is None else selection_}')
+          
+            # Filters based on Tags 
+            categories = st.multiselect(translations["sel_tags"][st.session_state.lang], options=df_curr_month['Tags'].unique(), default=df_curr_month['Tags'].unique(), key=f'type_filter_{list_[1][year]}')
+            df_filtered = df_curr_month[df_curr_month['Tags'].isin(categories)]
+            # Table Header
+            st.write(translations["title_1"][st.session_state.lang])
+            ############## TABLE ##############################################################################################################################################
+            st.dataframe(df_filtered.reset_index(drop=True).iloc[:,[0,1,4,3]], use_container_width=True)
+            ############## Bar Chart ##########################################################################################################################################
+            st.write(f'### {translations["title_2"][st.session_state.lang]}')
+            df_bar_chart = df_filtered.groupby(['WeekNo', 'Tags'], as_index=False)['Amount'].sum()
+            df_bar_chart['% of all'] = round(df_bar_chart['Amount'] / df_bar_chart.groupby('WeekNo')['Amount'].transform(func=sum) * 100,2)
+            chart = alt.Chart(df_bar_chart).mark_bar().encode(
+                x=alt.X('WeekNo:O', title='Week'),
+                y=alt.Y('Amount:Q', title = None),
+                color=alt.Color('Tags:N', title='Tags'),  # Color
+                tooltip=['WeekNo', 'Tags', 'sum(Amount)', '% of all'],  # Tooltip
+                text=alt.Text('sum(Amount):Q', format='.0f')
+            )
+            st.altair_chart(chart, use_container_width=True)
 
-          if curr_selection =="EUR":
-            heatmap_df = calendar_df.applymap(extract_amount)
-            st.table(heatmap_df.style
-                    .format('{:,.2f} €')
-                    .background_gradient(cmap='YlOrRd', axis=None))
-          elif curr_selection =="USD":
-            heatmap_df = calendar_df.applymap(extract_amount)
-            st.table(heatmap_df.style
-                    .format('{:,.2f} $')
-                    .background_gradient(cmap='YlOrRd', axis=None))
-          elif curr_selection == "PLN" or curr_selection==None:
-            heatmap_df = calendar_df.applymap(extract_amount)
-            st.table(heatmap_df.style
-                    .format('{:,.2f} zł')
-                    .background_gradient(cmap='YlOrRd', axis=None))
-        else:
-          st.write(translations["no_data_mes"][st.session_state.lang])
+            st.write(f'### {translations["title_3"][st.session_state.lang]}')
+            df_filtered['Day_name'] = df_filtered['Date'].dt.day_name()
+            df_table = df_filtered[df_filtered['Tags'] != "Inflows"]
+            df_table['Date'] = pd.to_datetime(df_table['Date']).dt.date
+            spend_map = df_table.groupby('Date')['Amount'].sum().to_dict()
+
+            df_week = df_filtered.groupby(['Day_name','Tags'], as_index=False)['Amount'].sum()
+            weekday_order = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
+            chart = alt.Chart(df_week[df_week['Tags'].isin(categories)]).mark_bar().encode(
+                    x=alt.X('Day_name:O', title='Days', sort=weekday_order),
+                    y=alt.Y('Amount:Q', title = None),
+                    color=alt.Color('Tags:N', title='Tags'),  # Color
+                    tooltip=['Day_name', 'Tags', 'Amount']  # Tooltip
+                )
+
+            # Display the chart in Streamlit
+            st.altair_chart(chart, use_container_width=True)
+            latest_month = (df_filtered['Month'].unique()[-1])
+            selection_ = st.pills(translations["sel_month"][st.session_state.lang], list(map(months2.get, df_filtered['Month'].unique())), selection_mode="single", key=f'month_pills_{list_[1][year]}_')
+            if selection_:
+                df_cal_month = df_filtered[df_filtered['Month'] == months[selection_]]
+            else:
+                df_cal_month = df_filtered[df_filtered['Month'] == latest_month]
+            df_cal_month.reset_index(drop=True, inplace=True)
+            year = df_cal_month['Year'][0]
+            month = df_cal_month['Month'][0]
+            days_in_month = calendar.monthrange(year, month)[1]
+            dates = [date(year, month, day) for day in range(1, days_in_month + 1)]
+
+            calendar_rows = []
+            week = [''] * 7 
+            for dt in dates:
+                dow = dt.weekday() 
+                content = f"[{dt.day}]\n${spend_map.get(dt, 0):.2f}"
+                week[dow] = content
+
+                if dow == 6 or dt.day == days_in_month:
+                    calendar_rows.append(week)
+                    week = [''] * 7 
+
+            calendar_df = pd.DataFrame(calendar_rows, columns=["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"])
+
+            def extract_amount(cell):
+                try:
+                    return round(float(cell.split('$')[1]),2)
+                except:
+                    return 0.00
+                
+            
+            st.write(f'### {translations["title_4"][st.session_state.lang]} {year}-{months2[latest_month] if selection_ is None else selection_}')
+
+            if curr_selection =="EUR":
+                heatmap_df = calendar_df.applymap(extract_amount)
+                st.table(heatmap_df.style
+                        .format('{:,.2f} €')
+                        .background_gradient(cmap='YlOrRd', axis=None))
+            elif curr_selection =="USD":
+                heatmap_df = calendar_df.applymap(extract_amount)
+                st.table(heatmap_df.style
+                        .format('{:,.2f} $')
+                        .background_gradient(cmap='YlOrRd', axis=None))
+            elif curr_selection == "PLN" or curr_selection==None:
+                heatmap_df = calendar_df.applymap(extract_amount)
+                st.table(heatmap_df.style
+                        .format('{:,.2f} zł')
+                        .background_gradient(cmap='YlOrRd', axis=None))
+            else:
+                st.write(translations["no_data_mes"][st.session_state.lang])

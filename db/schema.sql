@@ -8,6 +8,13 @@ CREATE TABLE IF NOT EXISTS users (
 
 CREATE TABLE IF NOT EXISTS stock_data (
     login_ TEXT NOT NULL,
+    Symbol TEXT,
+    Volume REAL,
+    'Open price' REAL,
+    'Portoflio Allocation' REAL,
+    'Market price' REAL,
+    Currecny TEXT,
+    'Gross P/L' REAL
     ticker TEXT,
     purchase_date DATE,
     purchase_price REAL,
@@ -65,5 +72,6 @@ CREATE TABLE IF NOT EXISTS trans (
 CREATE TABLE IF NOT EXISTS FX_table (
     PLN_EUR REAL,
     PLN_USD REAL,
-    Date DATE
+    Date DATE,
+    Weekday TEXT
 );

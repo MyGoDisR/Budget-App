@@ -5,6 +5,7 @@ import sqlite3
 import utils.login_management as login_management
 import pandas as pd
 
+
 ### Languages
 if "lang" not in st.session_state:
     st.session_state.lang = 'ENG'

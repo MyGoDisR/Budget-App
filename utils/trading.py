@@ -8,7 +8,8 @@ import json
 import os
 
 import pandas as pd
-import restricted as rest
+import numpy as np
+#import restricted as rest
 import time
 
 def streamlit_uploaded_file_trading(uploaded_file):
@@ -24,12 +25,9 @@ def trading_data_to_analysis():
 
   path_to_user_loaded_files = f'{folder_path}/Loaded'
   processed_files = f'{folder_path}/Processed'
-
-
-
-
   return 
 
+## this doesnt work
 def trading_yfin(tickers, start_date, end_date):
   data = yf.download(tickers, start_date, end_date)
   return data['Adj Close']
@@ -40,7 +38,7 @@ def trading_yfin_2(ticker_symbol, start_date, end_date):
   ticker = yf.Ticker(ticker_symbol)
   data = ticker.history(start=start_date_, end=end_date_)
   data.to_csv('lol.csv')
-  return data['Adj Close']
+  return data
 
 def get_crypto_data(ticker):
   url = 'https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
@@ -60,41 +58,71 @@ def get_crypto_data(ticker):
   response = session.get(url, params=parameters)
   print(json.load(response.text)['data']['1']['quote']['USD'])
 
+def open_stocks_data_and_present_open_position(path_to_excel):
+    df_open = pd.read_excel(path_to_excel, sheet_name=1, header=10).iloc[:-1,[1,2,3,4,5,6,7,8,15]]
+    total_invested = df_open['Purchase value'].sum()
+    df_open['Portoflio Allocation'] = round(df_open['Purchase value']/total_invested,3)
+    df_open_positions = df_open.groupby('Symbol').agg({'Volume': 'sum','Open price':'mean','Portoflio Allocation':'sum'}).reset_index()
+    df_open_positions['Market price'] = 0
+    df_open_positions['Currecny'] = 'Unknown'
+    for index,ticker_ in enumerate(df_open_positions['Symbol']):
+        a, b = ticker_.split('.')
+        print(b)
+        if b=='DE':
+            df_open_positions['Currecny'][index] = 'EUR'
+        elif b=='US':
+            df_open_positions['Currecny'][index] = 'USD'
+        elif b=='PL':
+            df_open_positions['Currecny'][index] = 'PLN'
+        b = b.replace('PL','WA')
+        ticker_ = a + '.' + b
+        try:
+            ticker = yf.Ticker(ticker_)
+            last_price = ticker.fast_info.last_price
+        except:
+            last_price = np.nan
+        
+        df_open_positions['Market price'][index] = last_price
+    df_open_positions['Gross P/L'] = (df_open_positions['Market price'] - df_open_positions['Open price']) * df_open_positions['Volume']
+    df_open_positions['Portoflio Allocation'] = df_open_positions['Portoflio Allocation'].map('{:.1%}'.format)
+    df_open_positions['Deep Dive'] = '->'
+    return df_open_positions
+
 # To Do
 def trading_csv_user_load():
-    path_to_user_loaded_files = f'Data/{st.session_state.role_}/Trading/Loaded'
-    archive_path = f'Data/{st.session_state.role_}/Trading/Archived'
-    processed_files = f'Data/{st.session_state.role_}/Trading/Processed'
+  path_to_user_loaded_files = f'Data/{st.session_state.role_}/Trading/Loaded'
+  archive_path = f'Data/{st.session_state.role_}/Trading/Archived'
+  processed_files = f'Data/{st.session_state.role_}/Trading/Processed'
 
-    if len(path_to_user_loaded_files) == 0 and 'final_output.csv' in processed_files:
-      return
-    elif len(path_to_user_loaded_files) == 0 and 'final_output.csv' not in processed_files:
-      return st.write('No data was processed yet, please upload the data')
-    else:
-      df_main = pd.DataFrame()
+  if len(path_to_user_loaded_files) == 0 and 'final_output.csv' in processed_files:
+    return
+  elif len(path_to_user_loaded_files) == 0 and 'final_output.csv' not in processed_files:
+    return st.write('No data was processed yet, please upload the data')
+  else:
+    df_main = pd.DataFrame()
 
-      for index, file_name in enumerate(os.listdir(path_to_user_loaded_files)):
-          if '.csv' in file_name:
-              # Display the filtered dat
-              df = pd.read_csv(path_to_user_loaded_files+f'/{file_name}')
-              df_main = pd.concat([df_main,df])
-              os.replace(path_to_user_loaded_files+f'/{file_name}', archive_path+f'/{file_name}')
+    for index, file_name in enumerate(os.listdir(path_to_user_loaded_files)):
+      if '.xlsx' in file_name:
+        # Display the filtered dat
+        df = pd.read_csv(path_to_user_loaded_files+f'/{file_name}')
+        df_main = pd.concat([df_main,df])
+        os.replace(path_to_user_loaded_files+f'/{file_name}', archive_path+f'/{file_name}')
 
-      if len(df_main) > 0:
-          df_main.sort_values(by='Date', ascending=True, inplace=True)
-          if index > 0:
-              df_main.drop_duplicates(inplace=True, subset=['Date','Desc','Amount','Ref'])
-          df_main.reset_index(inplace=True, drop=True)
+    if len(df_main) > 0:
+      df_main.sort_values(by='Date', ascending=True, inplace=True)
+      if index > 0:
+        df_main.drop_duplicates(inplace=True, subset=['Date','Desc','Amount','Ref'])
+      df_main.reset_index(inplace=True, drop=True)
 
-          if len(os.listdir(processed_files)) > 0:
-              df = pd.read_csv(processed_files+f'/{os.listdir(processed_files)[0]}')
-              df_main = pd.concat([df, df_main])
-              df_main.sort_values(by='Date', ascending=True, inplace=True)
-              df_main.drop_duplicates(inplace=True, subset=['Date','Desc','Amount','Ref'])
-              df_main.reset_index(inplace=True, drop=True)
+      if len(os.listdir(processed_files)) > 0:
+        df = pd.read_csv(processed_files+f'/{os.listdir(processed_files)[0]}')
+        df_main = pd.concat([df, df_main])
+        df_main.sort_values(by='Date', ascending=True, inplace=True)
+        df_main.drop_duplicates(inplace=True, subset=['Date','Desc','Amount','Ref'])
+        df_main.reset_index(inplace=True, drop=True)
 
-          df_main.to_csv(f'{processed_files}/final_output.csv', index=False)
-          #loaded_date = datetime.today().strftime("%Y-%m-%d")
+      df_main.to_csv(f'{processed_files}/final_output.csv', index=False)
+      #loaded_date = datetime.today().strftime("%Y-%m-%d")
           
-      df_main = pd.read_csv(f'{processed_files}/final_output.csv', )
-      return #, loaded_date
+    df_main = pd.read_csv(f'{processed_files}/final_output.csv', )
+    return #, loaded_date

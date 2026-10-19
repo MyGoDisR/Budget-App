@@ -1,6 +1,6 @@
 import streamlit as st
 import utils.trading as trading
-import core.navigation as navigation
+import utils.navigation as navigation
 import pandas as pd
 import numpy as np
 from time import sleep

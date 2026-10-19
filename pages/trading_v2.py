@@ -290,11 +290,12 @@ with _deposit_:
 with _stocks_:
     uploaded_files = st.file_uploader(
     translations["choose_file_"][st.session_state.lang], accept_multiple_files=True, key='stocks')
-
+    
     for uploaded_file in uploaded_files:
         suffix = uploaded_file.name.split('.')[-1]
         if suffix == 'xlsx':
             trading.streamlit_uploaded_file_trading(uploaded_file)
+            df = trading.open_stocks_data_and_present_open_position(uploaded_file)
         else:
             st.write(translations["type_mess"][st.session_state.lang])
 
@@ -342,9 +343,29 @@ with _stocks_:
                 st.error(translations["error_mess3"][st.session_state.lang])
             else:
                 st.error(translations["error_mess4"][st.session_state.lang])
-
     
-    # show already exsisting stocks:            
+    if uploaded_files:
+        tab1, tab2, tab3 = st.tabs(["All", "Closed Positions", "Open Positions"])
+
+        with tab1:
+            st.write('TBD')
+        with tab2:
+            edited_df = st.data_editor(
+                df,
+                column_config={
+                    "Deep Dive": st.column_config.CheckboxColumn(
+                        "Deep Dive",
+                        help="Open Deep Dive page"
+                    )
+                },
+                disabled=["Symbol", "Volume", "Open price","Portoflio Allocation","Market price","Currecny","Gross P/L"],
+                hide_index=True,
+            )
+        with tab3:
+            st.write('Stock Portfolio')
+            st.dataframe(df)
+
+    # show already exsisting stocks:           
     
 
 with _crypto_:
