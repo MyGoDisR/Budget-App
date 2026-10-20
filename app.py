@@ -1,31 +1,23 @@
+
 import streamlit as st
 from time import sleep
-import utils.navigation as navigation
-import utils.login_management as login_management
 import sqlite3
 import pandas as pd
-import certifi
+import utils.navigation as navigation
+import utils.login_management as login_management
 from utils import queries as qs
-
-# This is the structure of the app,
-# There will be a navigation bar in for historical spenditure by year/month/week and overall
-# To do:
-# 3. Add new subsector Finance this includes: 
-# - historical loan, 
-# - api calls to market data (probably yahoo finance),
-# - house cost - this has to be on request due to efficiency
-# - land cost - this has to be on request due to efficiency
-# - appartments for rent 
-# 4. Exchange rate should be store in db so that if not avialable then max of
 
 # Initialize st.session_state.lang to None
 if "lang" not in st.session_state:
     st.session_state.lang = 'ENG'
 
+# Language selection pills
 lang = ["ENG", "POL"]
-lang_selection = st.pills("", lang, selection_mode="single", width="stretch")
+lang_selection = st.pills("", lang, selection_mode="single")
+
 st.session_state.lang = 'ENG' if None == lang_selection else lang_selection
 
+# Dictionary with translations for the app, in order to make it multilingual
 translations = {
     "title": {"ENG": "Welcome to Finance app", "POL": "Witam w apliacji Analiza budżetu"},
     "logs": {"ENG": "Username", "POL": "Login"},
@@ -40,8 +32,8 @@ translations = {
 }
 
 # Initialize st.session_state.role to None
-if "role" not in st.session_state:
-    st.session_state.role = None
+if "role_" not in st.session_state:
+    st.session_state.role_ = None
 
 if st.session_state.get('creat_new_account'):
     st.session_state['name'] = 'new'
@@ -54,28 +46,19 @@ if "clicked" not in st.session_state:
 def onSearch(opt):
     st.session_state["clicked"] = True
 
-qs.init_db()
-
 st.title(translations["title"][st.session_state.lang])
 
 username = st.text_input(translations["logs"][st.session_state.lang], key='login_')
 password = st.text_input(translations["pass"][st.session_state.lang], key='password', type="password")
 
 # Creating conection to db
-con = sqlite3.connect("db/users_.db")
-cursor = con.cursor()
-cursor.execute('''
-SELECT * FROM users
-''')
+qs.init_db()
 
-# Checking userbase 
-select_query = "SELECT * FROM users;"
-df_users = pd.read_sql_query(select_query, con)
+df_users = qs.get_user_details()
 
 if st.button(translations["login"][st.session_state.lang], type="primary"):
     if username in df_users['login_'].tolist():
         if login_management.hash_password(password)[1] == df_users[df_users['login_']==f'{username}']['password_'].iloc[0]:
-            cursor.close()
             st.session_state.logged_in = True
             st.session_state.role_ = st.session_state['login_']
             key = "_role"
@@ -92,12 +75,11 @@ if st.button(translations["login"][st.session_state.lang], type="primary"):
 st.write('')
 st.write('')
 st.write(translations["new_prof"][st.session_state.lang])
+
 col1, col2 = st.columns([1,2])
 with col1:
-    if st.button(translations["yes_"][st.session_state
-.lang]):
+    if st.button(translations["yes_"][st.session_state.lang]):
         st.switch_page("pages/new_user.py")
 with col2:
-    if st.button(translations["no_"][st.session_state
-.lang]):
+    if st.button(translations["no_"][st.session_state.lang]):
         st.switch_page("pages/home.py")
