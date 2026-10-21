@@ -214,17 +214,17 @@ else:
           if curr_selection =="EUR":
             heatmap_df = calendar_df.applymap(extract_amount)
             st.table(heatmap_df.style
-                    .format('{:,.2f} €')
+                    .format('{:,.2f} €', na_rep='')
                     .background_gradient(cmap='YlOrRd', axis=None))
           elif curr_selection =="USD":
             heatmap_df = calendar_df.applymap(extract_amount)
             st.table(heatmap_df.style
-                    .format('{:,.2f} $')
+                    .format('{:,.2f} $', na_rep='')
                     .background_gradient(cmap='YlOrRd', axis=None))
           elif curr_selection == "PLN" or curr_selection==None:
             heatmap_df = calendar_df.applymap(extract_amount)
             st.table(heatmap_df.style
-                    .format('{:,.2f} zł')
+                    .format('{:,.2f} zł', na_rep='')
                     .background_gradient(cmap='YlOrRd', axis=None))
         else:
           st.write(translations["no_data_mes"][st.session_state.lang])

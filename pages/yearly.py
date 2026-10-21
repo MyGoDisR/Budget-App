@@ -7,11 +7,6 @@ import os
 import utils.finance as finance
 import utils.navigation as navigation
 import requests
-from forex_python.converter import CurrencyRates
-from forex_python.bitcoin import BtcConverter
-c = CurrencyRates()
-#PLN_USD = c.get_rate('PLN', 'USD')
-#PLN_EUR = c.get_rate('PLN', 'EUR')
 
 # Security 
 if "role_" not in st.session_state:
@@ -62,7 +57,7 @@ else:
     df['Year-Month'] = (df['Year']).astype(str) + '-' +(df['Month']).astype(str)
  
     ########################################################################################## Title and Description
-    st.title(translations["title"][st.session_state.lang])
+    st.header(translations["title"][st.session_state.lang], divider="gray")
     st.write(translations["filtered_title"][st.session_state.lang])
 
     curr = ["PLN", "EUR", "USD"]
