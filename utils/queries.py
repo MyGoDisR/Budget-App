@@ -237,9 +237,9 @@ def post_trans_data():
     return 
 
 # 8.2. Post user transaction info to db
-def get_trans_data():
+def get_trans_data(login_):
     conn = sqlite3.connect(DB_PATH, timeout=30)
-    df_sql = pd.read_sql_query("SELECT * FROM trans", conn)
+    df_sql = pd.read_sql_query("SELECT * FROM trans WHERE login_ = ?", conn, params=(login_,))
     conn.close()
     return df_sql
 
