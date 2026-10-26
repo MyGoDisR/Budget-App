@@ -10,8 +10,8 @@ from datetime import datetime as dt
 from forex_python.bitcoin import BtcConverter
 
 import yfinance as yf
-import pandas_datareader as pdr
-import restricted as res_ 
+#import pandas_datareader as pdr
+#import restricted as res_ 
 
 import os
 import requests

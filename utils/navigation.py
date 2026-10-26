@@ -13,12 +13,12 @@ def authenticated_menu():
     "home": {"ENG": "Home", "POL": "Start"},
     "profile": {"ENG": "Your Profile", "POL": "Twój Profil"},
     "first_page": {"ENG": "Financial Yearly", "POL": "Finanse Roczne"},
-    "second_page": {"ENG": "Creat a New User", "POL": "Finanse w ujęciu miesięcznym"},
+    "second_page": {"ENG": "Financial Monthly", "POL": "Finanse w ujęciu miesięcznym"},
     "third_page": {"ENG": "Flat for rent", "POL": "Mieszkania - wynajem"},
     "fourth_page": {"ENG": "Trading", "POL": "Inwestowanie"},
     "fifth_page": {"ENG": "House for sale", "POL": "Dom - kupno"},
     "sixth_page": {"ENG": "Land for sale", "POL": "Działka - kupno"},
-    "welcome": {"ENG": "'Welcome,", "POL": "Witaj, "},
+    "welcome": {"ENG": "Welcome,", "POL": "Witaj, "},
     "today": {"ENG": "Today is:", "POL": "Dziś jest: "},
     "refresh": {"ENG": "Last Refresh", "POL": "Ostatnie odświeżenie: "},
     "language": {"ENG": "Choose language", "POL": "Wybierz język"},
@@ -41,18 +41,17 @@ def authenticated_menu():
         select_query = f"SELECT * FROM users WHERE login_='{st.session_state.role_}';"
         df_users = pd.read_sql_query(select_query, new_con)
 
-        if df_users['flats'].iloc[0] == 1:
-            
-            st.page_link(f"pages/flat_for_rent.py", label=translations["third_page"][st.session_state.lang])
-        if df_users['trading'].iloc[0] == 1:
-            st.page_link(f"pages/trading.py", label=translations["fourth_page"][st.session_state.lang])
-        if df_users['house'].iloc[0] == 1:
-            st.page_link(f"pages/house.py", label=translations["fifth_page"][st.session_state.lang])
-        if df_users['land'].iloc[0] == 1:
-            st.page_link(f"pages/land.py", label=translations["sixth_page"][st.session_state.lang]) 
+        #if df_users['flats'].iloc[0] == 1:
+        #    st.page_link(f"pages/flat_for_rent.py", label=translations["third_page"][st.session_state.lang])
+        #if df_users['trading'].iloc[0] == 1:
+        #    st.page_link(f"pages/trading.py", label=translations["fourth_page"][st.session_state.lang])
+        #if df_users['house'].iloc[0] == 1:
+        #    st.page_link(f"pages/house.py", label=translations["fifth_page"][st.session_state.lang])
+        #if df_users['land'].iloc[0] == 1:
+        #    st.page_link(f"pages/land.py", label=translations["sixth_page"][st.session_state.lang]) 
     
         st.divider()
-        st.write(f"  {translations["welcome"][st.session_state.lang]} {st.session_state['role_']}!")
+        st.write(f'  {translations["welcome"][st.session_state.lang]} {st.session_state["role_"]}!')
         st.write(f'  {translations["today"][st.session_state.lang]} {datetime.today().strftime("%Y-%m-%d")}')
         st.write(f'  {translations["refresh"][st.session_state.lang]} TBD')
         st.divider()

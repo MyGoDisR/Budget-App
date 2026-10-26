@@ -1,0 +1,1546 @@
+{
+  "version": "2.0.0",
+  "lastScanned": "2026-01-21T10:43:10.488Z",
+  "tree": [
+    {
+      "id": "Data",
+      "name": "Data",
+      "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data",
+      "type": "folder",
+      "children": [
+        {
+          "id": "Data/Daniell",
+          "name": "Daniell",
+          "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Daniell",
+          "type": "folder",
+          "children": [
+            {
+              "id": "Data/Daniell/Trading",
+              "name": "Trading",
+              "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Daniell/Trading",
+              "type": "folder",
+              "children": [
+                {
+                  "id": "Data/Daniell/Trading/Archived",
+                  "name": "Archived",
+                  "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Daniell/Trading/Archived",
+                  "type": "folder",
+                  "children": [],
+                  "collapsed": false
+                },
+                {
+                  "id": "Data/Daniell/Trading/Loaded",
+                  "name": "Loaded",
+                  "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Daniell/Trading/Loaded",
+                  "type": "folder",
+                  "children": [],
+                  "collapsed": false
+                }
+              ],
+              "collapsed": false
+            },
+            {
+              "id": "Data/Daniell/Transactions",
+              "name": "Transactions",
+              "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Daniell/Transactions",
+              "type": "folder",
+              "children": [
+                {
+                  "id": "Data/Daniell/Transactions/Archived",
+                  "name": "Archived",
+                  "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Daniell/Transactions/Archived",
+                  "type": "folder",
+                  "children": [
+                    {
+                      "id": "Data/Daniell/Transactions/Archived/Transactions_history_Santander_Bank_Polska_SA_04-11-2024_14:18.pdf",
+                      "name": "Transactions_history_Santander_Bank_Polska_SA_04-11-2024_14:18.pdf",
+                      "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Daniell/Transactions/Archived/Transactions_history_Santander_Bank_Polska_SA_04-11-2024_14:18.pdf",
+                      "type": "file"
+                    }
+                  ],
+                  "collapsed": false
+                },
+                {
+                  "id": "Data/Daniell/Transactions/Loaded",
+                  "name": "Loaded",
+                  "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Daniell/Transactions/Loaded",
+                  "type": "folder",
+                  "children": [
+                    {
+                      "id": "Data/Daniell/Transactions/Loaded/bin_trans.csv",
+                      "name": "bin_trans.csv",
+                      "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Daniell/Transactions/Loaded/bin_trans.csv",
+                      "type": "file"
+                    }
+                  ],
+                  "collapsed": false
+                },
+                {
+                  "id": "Data/Daniell/Transactions/Processed",
+                  "name": "Processed",
+                  "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Daniell/Transactions/Processed",
+                  "type": "folder",
+                  "children": [
+                    {
+                      "id": "Data/Daniell/Transactions/Processed/final_output.csv",
+                      "name": "final_output.csv",
+                      "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Daniell/Transactions/Processed/final_output.csv",
+                      "type": "file"
+                    }
+                  ],
+                  "collapsed": false
+                }
+              ],
+              "collapsed": false
+            }
+          ],
+          "collapsed": false
+        },
+        {
+          "id": "Data/Danielson",
+          "name": "Danielson",
+          "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Danielson",
+          "type": "folder",
+          "children": [
+            {
+              "id": "Data/Danielson/Archived",
+              "name": "Archived",
+              "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Danielson/Archived",
+              "type": "folder",
+              "children": [
+                {
+                  "id": "Data/Danielson/Archived/Transactions_history_Santander_Bank_Polska_SA_04-11-2024_14:18.pdf",
+                  "name": "Transactions_history_Santander_Bank_Polska_SA_04-11-2024_14:18.pdf",
+                  "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Danielson/Archived/Transactions_history_Santander_Bank_Polska_SA_04-11-2024_14:18.pdf",
+                  "type": "file"
+                },
+                {
+                  "id": "Data/Danielson/Archived/WYCIAG_BANKOWY_8324_378RPG_000_M_0001-2024_WZE_2024-09-01.pdf",
+                  "name": "WYCIAG_BANKOWY_8324_378RPG_000_M_0001-2024_WZE_2024-09-01.pdf",
+                  "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Danielson/Archived/WYCIAG_BANKOWY_8324_378RPG_000_M_0001-2024_WZE_2024-09-01.pdf",
+                  "type": "file"
+                },
+                {
+                  "id": "Data/Danielson/Archived/WYCIAG_BANKOWY_8324_378RPG_000_M_0002-2024_WZE_2024-10-01.pdf",
+                  "name": "WYCIAG_BANKOWY_8324_378RPG_000_M_0002-2024_WZE_2024-10-01.pdf",
+                  "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Danielson/Archived/WYCIAG_BANKOWY_8324_378RPG_000_M_0002-2024_WZE_2024-10-01.pdf",
+                  "type": "file"
+                },
+                {
+                  "id": "Data/Danielson/Archived/WYCIAG_BANKOWY_8324_378RPG_000_M_0003-2024_WZE_2024-11-01.pdf",
+                  "name": "WYCIAG_BANKOWY_8324_378RPG_000_M_0003-2024_WZE_2024-11-01.pdf",
+                  "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Danielson/Archived/WYCIAG_BANKOWY_8324_378RPG_000_M_0003-2024_WZE_2024-11-01.pdf",
+                  "type": "file"
+                },
+                {
+                  "id": "Data/Danielson/Archived/WYCIAG_BANKOWY_8324_378RPG_000_M_0004-2024_WZE_2024-12-01.pdf",
+                  "name": "WYCIAG_BANKOWY_8324_378RPG_000_M_0004-2024_WZE_2024-12-01.pdf",
+                  "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Danielson/Archived/WYCIAG_BANKOWY_8324_378RPG_000_M_0004-2024_WZE_2024-12-01.pdf",
+                  "type": "file"
+                },
+                {
+                  "id": "Data/Danielson/Archived/WYCIAG_BANKOWY_8324_378RPG_000_M_0005-2024_WZE_2025-01-01.pdf",
+                  "name": "WYCIAG_BANKOWY_8324_378RPG_000_M_0005-2024_WZE_2025-01-01.pdf",
+                  "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Danielson/Archived/WYCIAG_BANKOWY_8324_378RPG_000_M_0005-2024_WZE_2025-01-01.pdf",
+                  "type": "file"
+                }
+              ],
+              "collapsed": false
+            },
+            {
+              "id": "Data/Danielson/Loaded",
+              "name": "Loaded",
+              "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Danielson/Loaded",
+              "type": "folder",
+              "children": [],
+              "collapsed": false
+            },
+            {
+              "id": "Data/Danielson/Processed",
+              "name": "Processed",
+              "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Danielson/Processed",
+              "type": "folder",
+              "children": [
+                {
+                  "id": "Data/Danielson/Processed/final_output.csv",
+                  "name": "final_output.csv",
+                  "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Danielson/Processed/final_output.csv",
+                  "type": "file"
+                }
+              ],
+              "collapsed": false
+            }
+          ],
+          "collapsed": false
+        },
+        {
+          "id": "Data/Danio",
+          "name": "Danio",
+          "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Danio",
+          "type": "folder",
+          "children": [
+            {
+              "id": "Data/Danio/Archived",
+              "name": "Archived",
+              "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Danio/Archived",
+              "type": "folder",
+              "children": [
+                {
+                  "id": "Data/Danio/Archived/Transactions_history_Santander_Bank_Polska_SA_04-11-2024_14:18.pdf",
+                  "name": "Transactions_history_Santander_Bank_Polska_SA_04-11-2024_14:18.pdf",
+                  "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Danio/Archived/Transactions_history_Santander_Bank_Polska_SA_04-11-2024_14:18.pdf",
+                  "type": "file"
+                },
+                {
+                  "id": "Data/Danio/Archived/WYCIAG_BANKOWY_8324_378RPG_000_M_0001-2024_WZE_2024-09-01.pdf",
+                  "name": "WYCIAG_BANKOWY_8324_378RPG_000_M_0001-2024_WZE_2024-09-01.pdf",
+                  "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Danio/Archived/WYCIAG_BANKOWY_8324_378RPG_000_M_0001-2024_WZE_2024-09-01.pdf",
+                  "type": "file"
+                },
+                {
+                  "id": "Data/Danio/Archived/WYCIAG_BANKOWY_8324_378RPG_000_M_0002-2024_WZE_2024-10-01.pdf",
+                  "name": "WYCIAG_BANKOWY_8324_378RPG_000_M_0002-2024_WZE_2024-10-01.pdf",
+                  "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Danio/Archived/WYCIAG_BANKOWY_8324_378RPG_000_M_0002-2024_WZE_2024-10-01.pdf",
+                  "type": "file"
+                },
+                {
+                  "id": "Data/Danio/Archived/WYCIAG_BANKOWY_8324_378RPG_000_M_0003-2024_WZE_2024-11-01.pdf",
+                  "name": "WYCIAG_BANKOWY_8324_378RPG_000_M_0003-2024_WZE_2024-11-01.pdf",
+                  "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Danio/Archived/WYCIAG_BANKOWY_8324_378RPG_000_M_0003-2024_WZE_2024-11-01.pdf",
+                  "type": "file"
+                },
+                {
+                  "id": "Data/Danio/Archived/WYCIAG_BANKOWY_8324_378RPG_000_M_0004-2024_WZE_2024-12-01.pdf",
+                  "name": "WYCIAG_BANKOWY_8324_378RPG_000_M_0004-2024_WZE_2024-12-01.pdf",
+                  "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Danio/Archived/WYCIAG_BANKOWY_8324_378RPG_000_M_0004-2024_WZE_2024-12-01.pdf",
+                  "type": "file"
+                },
+                {
+                  "id": "Data/Danio/Archived/WYCIAG_BANKOWY_8324_378RPG_000_M_0005-2024_WZE_2025-01-01.pdf",
+                  "name": "WYCIAG_BANKOWY_8324_378RPG_000_M_0005-2024_WZE_2025-01-01.pdf",
+                  "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Danio/Archived/WYCIAG_BANKOWY_8324_378RPG_000_M_0005-2024_WZE_2025-01-01.pdf",
+                  "type": "file"
+                },
+                {
+                  "id": "Data/Danio/Archived/WYCIAG_BANKOWY_8324_378RPG_000_M_0013-2025_WZE_2025-08-30.pdf",
+                  "name": "WYCIAG_BANKOWY_8324_378RPG_000_M_0013-2025_WZE_2025-08-30.pdf",
+                  "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Danio/Archived/WYCIAG_BANKOWY_8324_378RPG_000_M_0013-2025_WZE_2025-08-30.pdf",
+                  "type": "file"
+                }
+              ],
+              "collapsed": false
+            },
+            {
+              "id": "Data/Danio/Loaded",
+              "name": "Loaded",
+              "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Danio/Loaded",
+              "type": "folder",
+              "children": [],
+              "collapsed": false
+            },
+            {
+              "id": "Data/Danio/Processed",
+              "name": "Processed",
+              "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Danio/Processed",
+              "type": "folder",
+              "children": [
+                {
+                  "id": "Data/Danio/Processed/final_output.csv",
+                  "name": "final_output.csv",
+                  "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Danio/Processed/final_output.csv",
+                  "type": "file"
+                }
+              ],
+              "collapsed": false
+            }
+          ],
+          "collapsed": false
+        },
+        {
+          "id": "Data/GeoJsons",
+          "name": "GeoJsons",
+          "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/GeoJsons",
+          "type": "folder",
+          "children": [
+            {
+              "id": "Data/GeoJsons/krakow-dzielnice.geojson",
+              "name": "krakow-dzielnice.geojson",
+              "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/GeoJsons/krakow-dzielnice.geojson",
+              "type": "file"
+            },
+            {
+              "id": "Data/GeoJsons/warszawa-dzielnice.geojson",
+              "name": "warszawa-dzielnice.geojson",
+              "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/GeoJsons/warszawa-dzielnice.geojson",
+              "type": "file"
+            }
+          ],
+          "collapsed": false
+        },
+        {
+          "id": "Data/Test",
+          "name": "Test",
+          "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Test",
+          "type": "folder",
+          "children": [
+            {
+              "id": "Data/Test/Trading",
+              "name": "Trading",
+              "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Test/Trading",
+              "type": "folder",
+              "children": [
+                {
+                  "id": "Data/Test/Trading/Loaded",
+                  "name": "Loaded",
+                  "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Test/Trading/Loaded",
+                  "type": "folder",
+                  "children": [],
+                  "collapsed": false
+                },
+                {
+                  "id": "Data/Test/Trading/Processed",
+                  "name": "Processed",
+                  "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Test/Trading/Processed",
+                  "type": "folder",
+                  "children": [],
+                  "collapsed": false
+                }
+              ],
+              "collapsed": false
+            },
+            {
+              "id": "Data/Test/Transactions",
+              "name": "Transactions",
+              "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Test/Transactions",
+              "type": "folder",
+              "children": [
+                {
+                  "id": "Data/Test/Transactions/Archived",
+                  "name": "Archived",
+                  "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Test/Transactions/Archived",
+                  "type": "folder",
+                  "children": [
+                    {
+                      "id": "Data/Test/Transactions/Archived/Transactions_history_Santander_Bank_Polska_SA_04-11-2024_14:18.pdf",
+                      "name": "Transactions_history_Santander_Bank_Polska_SA_04-11-2024_14:18.pdf",
+                      "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Test/Transactions/Archived/Transactions_history_Santander_Bank_Polska_SA_04-11-2024_14:18.pdf",
+                      "type": "file"
+                    },
+                    {
+                      "id": "Data/Test/Transactions/Archived/WYCIAG_BANKOWY_8324_378RPG_000_M_0001-2024_WZE_2024-09-01.pdf",
+                      "name": "WYCIAG_BANKOWY_8324_378RPG_000_M_0001-2024_WZE_2024-09-01.pdf",
+                      "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Test/Transactions/Archived/WYCIAG_BANKOWY_8324_378RPG_000_M_0001-2024_WZE_2024-09-01.pdf",
+                      "type": "file"
+                    },
+                    {
+                      "id": "Data/Test/Transactions/Archived/WYCIAG_BANKOWY_8324_378RPG_000_M_0002-2024_WZE_2024-10-01.pdf",
+                      "name": "WYCIAG_BANKOWY_8324_378RPG_000_M_0002-2024_WZE_2024-10-01.pdf",
+                      "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Test/Transactions/Archived/WYCIAG_BANKOWY_8324_378RPG_000_M_0002-2024_WZE_2024-10-01.pdf",
+                      "type": "file"
+                    },
+                    {
+                      "id": "Data/Test/Transactions/Archived/WYCIAG_BANKOWY_8324_378RPG_000_M_0003-2024_WZE_2024-11-01.pdf",
+                      "name": "WYCIAG_BANKOWY_8324_378RPG_000_M_0003-2024_WZE_2024-11-01.pdf",
+                      "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Test/Transactions/Archived/WYCIAG_BANKOWY_8324_378RPG_000_M_0003-2024_WZE_2024-11-01.pdf",
+                      "type": "file"
+                    },
+                    {
+                      "id": "Data/Test/Transactions/Archived/WYCIAG_BANKOWY_8324_378RPG_000_M_0004-2024_WZE_2024-12-01.pdf",
+                      "name": "WYCIAG_BANKOWY_8324_378RPG_000_M_0004-2024_WZE_2024-12-01.pdf",
+                      "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Test/Transactions/Archived/WYCIAG_BANKOWY_8324_378RPG_000_M_0004-2024_WZE_2024-12-01.pdf",
+                      "type": "file"
+                    },
+                    {
+                      "id": "Data/Test/Transactions/Archived/WYCIAG_BANKOWY_8324_378RPG_000_M_0005-2024_WZE_2025-01-01.pdf",
+                      "name": "WYCIAG_BANKOWY_8324_378RPG_000_M_0005-2024_WZE_2025-01-01.pdf",
+                      "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Test/Transactions/Archived/WYCIAG_BANKOWY_8324_378RPG_000_M_0005-2024_WZE_2025-01-01.pdf",
+                      "type": "file"
+                    }
+                  ],
+                  "collapsed": false
+                },
+                {
+                  "id": "Data/Test/Transactions/Loaded",
+                  "name": "Loaded",
+                  "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Test/Transactions/Loaded",
+                  "type": "folder",
+                  "children": [],
+                  "collapsed": false
+                },
+                {
+                  "id": "Data/Test/Transactions/Processed",
+                  "name": "Processed",
+                  "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Test/Transactions/Processed",
+                  "type": "folder",
+                  "children": [
+                    {
+                      "id": "Data/Test/Transactions/Processed/final_output.csv",
+                      "name": "final_output.csv",
+                      "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/Data/Test/Transactions/Processed/final_output.csv",
+                      "type": "file"
+                    }
+                  ],
+                  "collapsed": false
+                }
+              ],
+              "collapsed": false
+            }
+          ],
+          "collapsed": false
+        }
+      ],
+      "collapsed": false
+    },
+    {
+      "id": "db",
+      "name": "db",
+      "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/db",
+      "type": "folder",
+      "children": [
+        {
+          "id": "db/schema.sql",
+          "name": "schema.sql",
+          "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/db/schema.sql",
+          "type": "file"
+        },
+        {
+          "id": "db/schema1.sql",
+          "name": "schema1.sql",
+          "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/db/schema1.sql",
+          "type": "file"
+        },
+        {
+          "id": "db/users_.db",
+          "name": "users_.db",
+          "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/db/users_.db",
+          "type": "file"
+        }
+      ],
+      "collapsed": false
+    },
+    {
+      "id": "pages",
+      "name": "pages",
+      "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/pages",
+      "type": "folder",
+      "children": [
+        {
+          "id": "pages/home.py",
+          "name": "home.py",
+          "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/pages/home.py",
+          "type": "file",
+          "symbols": [
+            {
+              "id": "pages/home.py::translations",
+              "name": "translations",
+              "kind": "variable",
+              "location": {
+                "line": 15,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "pages/home.py::uploaded_files",
+              "name": "uploaded_files",
+              "kind": "variable",
+              "location": {
+                "line": 30,
+                "column": 0
+              },
+              "exported": true
+            }
+          ]
+        },
+        {
+          "id": "pages/monthly.py",
+          "name": "monthly.py",
+          "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/pages/monthly.py",
+          "type": "file",
+          "symbols": [
+            {
+              "id": "pages/monthly.py::fx_rates_",
+              "name": "fx_rates_",
+              "kind": "variable",
+              "location": {
+                "line": 13,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "pages/monthly.py::translations",
+              "name": "translations",
+              "kind": "variable",
+              "location": {
+                "line": 27,
+                "column": 0
+              },
+              "exported": true
+            }
+          ]
+        },
+        {
+          "id": "pages/new_user.py",
+          "name": "new_user.py",
+          "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/pages/new_user.py",
+          "type": "file",
+          "symbols": [
+            {
+              "id": "pages/new_user.py::lang",
+              "name": "lang",
+              "kind": "variable",
+              "location": {
+                "line": 13,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "pages/new_user.py::lang_selection",
+              "name": "lang_selection",
+              "kind": "variable",
+              "location": {
+                "line": 14,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "pages/new_user.py::translations",
+              "name": "translations",
+              "kind": "variable",
+              "location": {
+                "line": 23,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "pages/new_user.py::Trading",
+              "name": "Trading",
+              "kind": "variable",
+              "location": {
+                "line": 49,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "pages/new_user.py::real_estate",
+              "name": "real_estate",
+              "kind": "variable",
+              "location": {
+                "line": 50,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "pages/new_user.py::user_choice",
+              "name": "user_choice",
+              "kind": "variable",
+              "location": {
+                "line": 52,
+                "column": 0
+              },
+              "exported": true
+            }
+          ]
+        },
+        {
+          "id": "pages/overview.py",
+          "name": "overview.py",
+          "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/pages/overview.py",
+          "type": "file",
+          "symbols": [
+            {
+              "id": "pages/overview.py::df",
+              "name": "df",
+              "kind": "variable",
+              "location": {
+                "line": 17,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "pages/overview.py::months_names",
+              "name": "months_names",
+              "kind": "variable",
+              "location": {
+                "line": 28,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "pages/overview.py::months",
+              "name": "months",
+              "kind": "variable",
+              "location": {
+                "line": 29,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "pages/overview.py::months2",
+              "name": "months2",
+              "kind": "variable",
+              "location": {
+                "line": 31,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "pages/overview.py::list_",
+              "name": "list_",
+              "kind": "variable",
+              "location": {
+                "line": 34,
+                "column": 0
+              },
+              "exported": true
+            }
+          ]
+        },
+        {
+          "id": "pages/real_estates.py",
+          "name": "real_estates.py",
+          "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/pages/real_estates.py",
+          "type": "file",
+          "symbols": [
+            {
+              "id": "pages/real_estates.py::webscrap_get",
+              "name": "webscrap_get",
+              "kind": "function",
+              "location": {
+                "line": 27,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "pages/real_estates.py::translations",
+              "name": "translations",
+              "kind": "variable",
+              "location": {
+                "line": 62,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "pages/real_estates.py::gratka",
+              "name": "gratka",
+              "kind": "variable",
+              "location": {
+                "line": 104,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "pages/real_estates.py::otodom",
+              "name": "otodom",
+              "kind": "variable",
+              "location": {
+                "line": 105,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "pages/real_estates.py::olx",
+              "name": "olx",
+              "kind": "variable",
+              "location": {
+                "line": 106,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "pages/real_estates.py::user_choice_webscrap",
+              "name": "user_choice_webscrap",
+              "kind": "variable",
+              "location": {
+                "line": 108,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "pages/real_estates.py::dfColumns",
+              "name": "dfColumns",
+              "kind": "variable",
+              "location": {
+                "line": 120,
+                "column": 0
+              },
+              "exported": true
+            }
+          ]
+        },
+        {
+          "id": "pages/trading_v2.py",
+          "name": "trading_v2.py",
+          "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/pages/trading_v2.py",
+          "type": "file",
+          "symbols": [
+            {
+              "id": "pages/trading_v2.py::translations",
+              "name": "translations",
+              "kind": "variable",
+              "location": {
+                "line": 37,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "pages/trading_v2.py::uploaded_files",
+              "name": "uploaded_files",
+              "kind": "variable",
+              "location": {
+                "line": 58,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "pages/trading_v2.py::add_dfForm_stocks",
+              "name": "add_dfForm_stocks",
+              "kind": "function",
+              "location": {
+                "line": 72,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "pages/trading_v2.py::add_dfForm_crypto",
+              "name": "add_dfForm_crypto",
+              "kind": "function",
+              "location": {
+                "line": 80,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "pages/trading_v2.py::add_dfForm_deposit",
+              "name": "add_dfForm_deposit",
+              "kind": "function",
+              "location": {
+                "line": 88,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "pages/trading_v2.py::add_dfForm_bonds",
+              "name": "add_dfForm_bonds",
+              "kind": "function",
+              "location": {
+                "line": 102,
+                "column": 0
+              },
+              "exported": true
+            }
+          ]
+        },
+        {
+          "id": "pages/trading.py",
+          "name": "trading.py",
+          "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/pages/trading.py",
+          "type": "file",
+          "symbols": [
+            {
+              "id": "pages/trading.py::callback",
+              "name": "callback",
+              "kind": "function",
+              "location": {
+                "line": 31,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "pages/trading.py::columns",
+              "name": "columns",
+              "kind": "variable",
+              "location": {
+                "line": 43,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "pages/trading.py::column_config",
+              "name": "column_config",
+              "kind": "variable",
+              "location": {
+                "line": 44,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "pages/trading.py::modified_df",
+              "name": "modified_df",
+              "kind": "variable",
+              "location": {
+                "line": 46,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "pages/trading.py::modified_df",
+              "name": "modified_df",
+              "kind": "variable",
+              "location": {
+                "line": 49,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "pages/trading.py::translations",
+              "name": "translations",
+              "kind": "variable",
+              "location": {
+                "line": 51,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "pages/trading.py::con",
+              "name": "con",
+              "kind": "variable",
+              "location": {
+                "line": 77,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "pages/trading.py::cursor",
+              "name": "cursor",
+              "kind": "variable",
+              "location": {
+                "line": 78,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "pages/trading.py::df_portfolio",
+              "name": "df_portfolio",
+              "kind": "variable",
+              "location": {
+                "line": 80,
+                "column": 0
+              },
+              "exported": true
+            }
+          ]
+        },
+        {
+          "id": "pages/yearly.py",
+          "name": "yearly.py",
+          "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/pages/yearly.py",
+          "type": "file",
+          "symbols": [
+            {
+              "id": "pages/yearly.py::fx_rates_",
+              "name": "fx_rates_",
+              "kind": "variable",
+              "location": {
+                "line": 13,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "pages/yearly.py::translations",
+              "name": "translations",
+              "kind": "variable",
+              "location": {
+                "line": 31,
+                "column": 0
+              },
+              "exported": true
+            }
+          ]
+        }
+      ],
+      "collapsed": false
+    },
+    {
+      "id": "utils",
+      "name": "utils",
+      "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/utils",
+      "type": "folder",
+      "children": [
+        {
+          "id": "utils/finance.py",
+          "name": "finance.py",
+          "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/utils/finance.py",
+          "type": "file",
+          "symbols": [
+            {
+              "id": "utils/finance.py::data_to_df",
+              "name": "data_to_df",
+              "kind": "function",
+              "location": {
+                "line": 14,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/finance.py::fixing_type",
+              "name": "fixing_type",
+              "kind": "function",
+              "location": {
+                "line": 560,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/finance.py::streamlit_uploaded_file",
+              "name": "streamlit_uploaded_file",
+              "kind": "function",
+              "location": {
+                "line": 572,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/finance.py::csv_user_load",
+              "name": "csv_user_load",
+              "kind": "function",
+              "location": {
+                "line": 579,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/finance.py::pdf_user_load",
+              "name": "pdf_user_load",
+              "kind": "function",
+              "location": {
+                "line": 619,
+                "column": 0
+              },
+              "exported": true
+            }
+          ]
+        },
+        {
+          "id": "utils/fx_rates.py",
+          "name": "fx_rates.py",
+          "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/utils/fx_rates.py",
+          "type": "file",
+          "symbols": [
+            {
+              "id": "utils/fx_rates.py::DB_PATH",
+              "name": "DB_PATH",
+              "kind": "variable",
+              "location": {
+                "line": 6,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/fx_rates.py::SCHEMA_PATH",
+              "name": "SCHEMA_PATH",
+              "kind": "variable",
+              "location": {
+                "line": 7,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/fx_rates.py::get_last_available_price",
+              "name": "get_last_available_price",
+              "kind": "function",
+              "location": {
+                "line": 9,
+                "column": 0
+              },
+              "exported": true
+            }
+          ]
+        },
+        {
+          "id": "utils/login_management.py",
+          "name": "login_management.py",
+          "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/utils/login_management.py",
+          "type": "file",
+          "symbols": [
+            {
+              "id": "utils/login_management.py::hash_password",
+              "name": "hash_password",
+              "kind": "function",
+              "location": {
+                "line": 11,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/login_management.py::encode_hash_pass",
+              "name": "encode_hash_pass",
+              "kind": "function",
+              "location": {
+                "line": 17,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/login_management.py::creat_new_user",
+              "name": "creat_new_user",
+              "kind": "function",
+              "location": {
+                "line": 24,
+                "column": 0
+              },
+              "exported": true
+            }
+          ]
+        },
+        {
+          "id": "utils/navigation.py",
+          "name": "navigation.py",
+          "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/utils/navigation.py",
+          "type": "file",
+          "symbols": [
+            {
+              "id": "utils/navigation.py::authenticated_menu",
+              "name": "authenticated_menu",
+              "kind": "function",
+              "location": {
+                "line": 18,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/navigation.py::unauthenticated_menu",
+              "name": "unauthenticated_menu",
+              "kind": "function",
+              "location": {
+                "line": 77,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/navigation.py::menu",
+              "name": "menu",
+              "kind": "function",
+              "location": {
+                "line": 82,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/navigation.py::logout",
+              "name": "logout",
+              "kind": "function",
+              "location": {
+                "line": 89,
+                "column": 0
+              },
+              "exported": true
+            }
+          ]
+        },
+        {
+          "id": "utils/queries.py",
+          "name": "queries.py",
+          "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/utils/queries.py",
+          "type": "file",
+          "symbols": [
+            {
+              "id": "utils/queries.py::DB_PATH",
+              "name": "DB_PATH",
+              "kind": "variable",
+              "location": {
+                "line": 6,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/queries.py::SCHEMA_PATH",
+              "name": "SCHEMA_PATH",
+              "kind": "variable",
+              "location": {
+                "line": 7,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/queries.py::clear_table",
+              "name": "clear_table",
+              "kind": "function",
+              "location": {
+                "line": 12,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/queries.py::init_db",
+              "name": "init_db",
+              "kind": "function",
+              "location": {
+                "line": 23,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/queries.py::clean_duplicates_from_any_table",
+              "name": "clean_duplicates_from_any_table",
+              "kind": "function",
+              "location": {
+                "line": 38,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/queries.py::get_user_details",
+              "name": "get_user_details",
+              "kind": "function",
+              "location": {
+                "line": 51,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/queries.py::new_user_to_db",
+              "name": "new_user_to_db",
+              "kind": "function",
+              "location": {
+                "line": 61,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/queries.py::get_user_stock",
+              "name": "get_user_stock",
+              "kind": "function",
+              "location": {
+                "line": 84,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/queries.py::post_user_stock",
+              "name": "post_user_stock",
+              "kind": "function",
+              "location": {
+                "line": 97,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/queries.py::get_user_crypto",
+              "name": "get_user_crypto",
+              "kind": "function",
+              "location": {
+                "line": 115,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/queries.py::post_user_crypto",
+              "name": "post_user_crypto",
+              "kind": "function",
+              "location": {
+                "line": 128,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/queries.py::get_user_deposit",
+              "name": "get_user_deposit",
+              "kind": "function",
+              "location": {
+                "line": 146,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/queries.py::post_user_deposit",
+              "name": "post_user_deposit",
+              "kind": "function",
+              "location": {
+                "line": 155,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/queries.py::get_user_bonds",
+              "name": "get_user_bonds",
+              "kind": "function",
+              "location": {
+                "line": 179,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/queries.py::post_user_bonds",
+              "name": "post_user_bonds",
+              "kind": "function",
+              "location": {
+                "line": 192,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/queries.py::get_flats_for_sale",
+              "name": "get_flats_for_sale",
+              "kind": "function",
+              "location": {
+                "line": 207,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/queries.py::post_trans_data",
+              "name": "post_trans_data",
+              "kind": "function",
+              "location": {
+                "line": 216,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/queries.py::get_trans_data",
+              "name": "get_trans_data",
+              "kind": "function",
+              "location": {
+                "line": 234,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/queries.py::get_last_available_price_from_db",
+              "name": "get_last_available_price_from_db",
+              "kind": "function",
+              "location": {
+                "line": 243,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/queries.py::clean_fx_table",
+              "name": "clean_fx_table",
+              "kind": "function",
+              "location": {
+                "line": 251,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/queries.py::append_to_fx_table",
+              "name": "append_to_fx_table",
+              "kind": "function",
+              "location": {
+                "line": 262,
+                "column": 0
+              },
+              "exported": true
+            }
+          ]
+        },
+        {
+          "id": "utils/trading.py",
+          "name": "trading.py",
+          "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/utils/trading.py",
+          "type": "file",
+          "symbols": [
+            {
+              "id": "utils/trading.py::trading_yfin",
+              "name": "trading_yfin",
+              "kind": "function",
+              "location": {
+                "line": 13,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/trading.py::trading_yfin_2",
+              "name": "trading_yfin_2",
+              "kind": "function",
+              "location": {
+                "line": 17,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/trading.py::get_crypto_data",
+              "name": "get_crypto_data",
+              "kind": "function",
+              "location": {
+                "line": 25,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/trading.py::trading_csv_user_load",
+              "name": "trading_csv_user_load",
+              "kind": "function",
+              "location": {
+                "line": 44,
+                "column": 0
+              },
+              "exported": true
+            }
+          ]
+        },
+        {
+          "id": "utils/web_scrap.py",
+          "name": "web_scrap.py",
+          "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/utils/web_scrap.py",
+          "type": "file",
+          "symbols": [
+            {
+              "id": "utils/web_scrap.py::options",
+              "name": "options",
+              "kind": "variable",
+              "location": {
+                "line": 19,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/web_scrap.py::service",
+              "name": "service",
+              "kind": "variable",
+              "location": {
+                "line": 25,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/web_scrap.py::gratka",
+              "name": "gratka",
+              "kind": "function",
+              "location": {
+                "line": 29,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/web_scrap.py::olx",
+              "name": "olx",
+              "kind": "function",
+              "location": {
+                "line": 183,
+                "column": 0
+              },
+              "exported": true
+            },
+            {
+              "id": "utils/web_scrap.py::otodom",
+              "name": "otodom",
+              "kind": "function",
+              "location": {
+                "line": 301,
+                "column": 0
+              },
+              "exported": true
+            }
+          ]
+        }
+      ],
+      "collapsed": false
+    },
+    {
+      "id": "account_52157453_pl_xlsx_2005-12-31_2025-10-08.xlsx",
+      "name": "account_52157453_pl_xlsx_2005-12-31_2025-10-08.xlsx",
+      "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/account_52157453_pl_xlsx_2005-12-31_2025-10-08.xlsx",
+      "type": "file"
+    },
+    {
+      "id": "app.py",
+      "name": "app.py",
+      "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/app.py",
+      "type": "file",
+      "symbols": [
+        {
+          "id": "app.py::lang",
+          "name": "lang",
+          "kind": "variable",
+          "location": {
+            "line": 25,
+            "column": 0
+          },
+          "exported": true
+        },
+        {
+          "id": "app.py::lang_selection",
+          "name": "lang_selection",
+          "kind": "variable",
+          "location": {
+            "line": 26,
+            "column": 0
+          },
+          "exported": true
+        },
+        {
+          "id": "app.py::translations",
+          "name": "translations",
+          "kind": "variable",
+          "location": {
+            "line": 29,
+            "column": 0
+          },
+          "exported": true
+        },
+        {
+          "id": "app.py::onSearch",
+          "name": "onSearch",
+          "kind": "function",
+          "location": {
+            "line": 54,
+            "column": 0
+          },
+          "exported": true
+        },
+        {
+          "id": "app.py::username",
+          "name": "username",
+          "kind": "variable",
+          "location": {
+            "line": 59,
+            "column": 0
+          },
+          "exported": true
+        },
+        {
+          "id": "app.py::password",
+          "name": "password",
+          "kind": "variable",
+          "location": {
+            "line": 60,
+            "column": 0
+          },
+          "exported": true
+        },
+        {
+          "id": "app.py::df_users",
+          "name": "df_users",
+          "kind": "variable",
+          "location": {
+            "line": 65,
+            "column": 0
+          },
+          "exported": true
+        }
+      ]
+    },
+    {
+      "id": "bin_trans.csv",
+      "name": "bin_trans.csv",
+      "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/bin_trans.csv",
+      "type": "file"
+    },
+    {
+      "id": "bin_trans.xls",
+      "name": "bin_trans.xls",
+      "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/bin_trans.xls",
+      "type": "file"
+    },
+    {
+      "id": "binance_trans.ipynb",
+      "name": "binance_trans.ipynb",
+      "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/binance_trans.ipynb",
+      "type": "file"
+    },
+    {
+      "id": "flats_to_sql.ipynb",
+      "name": "flats_to_sql.ipynb",
+      "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/flats_to_sql.ipynb",
+      "type": "file"
+    },
+    {
+      "id": "output.csv",
+      "name": "output.csv",
+      "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/output.csv",
+      "type": "file"
+    },
+    {
+      "id": "README.md",
+      "name": "README.md",
+      "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/README.md",
+      "type": "file"
+    },
+    {
+      "id": "restricted.py",
+      "name": "restricted.py",
+      "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/restricted.py",
+      "type": "file",
+      "symbols": [
+        {
+          "id": "restricted.py::key",
+          "name": "key",
+          "kind": "variable",
+          "location": {
+            "line": 1,
+            "column": 0
+          },
+          "exported": true
+        }
+      ]
+    },
+    {
+      "id": "test.ipynb",
+      "name": "test.ipynb",
+      "path": "/Users/daniel_mac/Desktop/Projects/Budget_app/transaction_analysis_v2/test.ipynb",
+      "type": "file"
+    }
+  ],
+  "fileCount": 55,
+  "symbolCount": 92
+}

@@ -1,0 +1,1229 @@
+{
+  "version": "2.0.0",
+  "classes": [],
+  "interfaces": [],
+  "functions": [
+    {
+      "id": "pages/real_estates.py::webscrap_get",
+      "name": "webscrap_get",
+      "fileId": "pages/real_estates.py",
+      "location": {
+        "line": 27,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": [
+        {
+          "name": "real_estate_user_choice",
+          "optional": false
+        },
+        {
+          "name": "town_user_choice",
+          "optional": false
+        },
+        {
+          "name": "user_choice_webscrap",
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "pages/trading_v2.py::add_dfForm_stocks",
+      "name": "add_dfForm_stocks",
+      "fileId": "pages/trading_v2.py",
+      "location": {
+        "line": 72,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": []
+    },
+    {
+      "id": "pages/trading_v2.py::add_dfForm_crypto",
+      "name": "add_dfForm_crypto",
+      "fileId": "pages/trading_v2.py",
+      "location": {
+        "line": 80,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": []
+    },
+    {
+      "id": "pages/trading_v2.py::add_dfForm_deposit",
+      "name": "add_dfForm_deposit",
+      "fileId": "pages/trading_v2.py",
+      "location": {
+        "line": 88,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": []
+    },
+    {
+      "id": "pages/trading_v2.py::add_dfForm_bonds",
+      "name": "add_dfForm_bonds",
+      "fileId": "pages/trading_v2.py",
+      "location": {
+        "line": 102,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": [
+        {
+          "name": "i",
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "pages/trading.py::callback",
+      "name": "callback",
+      "fileId": "pages/trading.py",
+      "location": {
+        "line": 31,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": []
+    },
+    {
+      "id": "utils/finance.py::data_to_df",
+      "name": "data_to_df",
+      "fileId": "utils/finance.py",
+      "location": {
+        "line": 14,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": []
+    },
+    {
+      "id": "utils/finance.py::fixing_type",
+      "name": "fixing_type",
+      "fileId": "utils/finance.py",
+      "location": {
+        "line": 560,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": [
+        {
+          "name": "your_df",
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "utils/finance.py::streamlit_uploaded_file",
+      "name": "streamlit_uploaded_file",
+      "fileId": "utils/finance.py",
+      "location": {
+        "line": 572,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": [
+        {
+          "name": "uploaded_file",
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "utils/finance.py::csv_user_load",
+      "name": "csv_user_load",
+      "fileId": "utils/finance.py",
+      "location": {
+        "line": 579,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": []
+    },
+    {
+      "id": "utils/finance.py::pdf_user_load",
+      "name": "pdf_user_load",
+      "fileId": "utils/finance.py",
+      "location": {
+        "line": 619,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": []
+    },
+    {
+      "id": "utils/fx_rates.py::get_last_available_price",
+      "name": "get_last_available_price",
+      "fileId": "utils/fx_rates.py",
+      "location": {
+        "line": 9,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": []
+    },
+    {
+      "id": "utils/login_management.py::hash_password",
+      "name": "hash_password",
+      "fileId": "utils/login_management.py",
+      "location": {
+        "line": 11,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": [
+        {
+          "name": "password",
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "utils/login_management.py::encode_hash_pass",
+      "name": "encode_hash_pass",
+      "fileId": "utils/login_management.py",
+      "location": {
+        "line": 17,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": [
+        {
+          "name": "password",
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "utils/login_management.py::creat_new_user",
+      "name": "creat_new_user",
+      "fileId": "utils/login_management.py",
+      "location": {
+        "line": 24,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": [
+        {
+          "name": "user_choice",
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "utils/navigation.py::authenticated_menu",
+      "name": "authenticated_menu",
+      "fileId": "utils/navigation.py",
+      "location": {
+        "line": 18,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": []
+    },
+    {
+      "id": "utils/navigation.py::unauthenticated_menu",
+      "name": "unauthenticated_menu",
+      "fileId": "utils/navigation.py",
+      "location": {
+        "line": 77,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": []
+    },
+    {
+      "id": "utils/navigation.py::menu",
+      "name": "menu",
+      "fileId": "utils/navigation.py",
+      "location": {
+        "line": 82,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": []
+    },
+    {
+      "id": "utils/navigation.py::logout",
+      "name": "logout",
+      "fileId": "utils/navigation.py",
+      "location": {
+        "line": 89,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": []
+    },
+    {
+      "id": "utils/queries.py::clear_table",
+      "name": "clear_table",
+      "fileId": "utils/queries.py",
+      "location": {
+        "line": 12,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": [
+        {
+          "name": "table_name",
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "utils/queries.py::init_db",
+      "name": "init_db",
+      "fileId": "utils/queries.py",
+      "location": {
+        "line": 23,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": []
+    },
+    {
+      "id": "utils/queries.py::clean_duplicates_from_any_table",
+      "name": "clean_duplicates_from_any_table",
+      "fileId": "utils/queries.py",
+      "location": {
+        "line": 38,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": [
+        {
+          "name": "table_name",
+          "optional": false
+        },
+        {
+          "name": "conn",
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "utils/queries.py::get_user_details",
+      "name": "get_user_details",
+      "fileId": "utils/queries.py",
+      "location": {
+        "line": 51,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": []
+    },
+    {
+      "id": "utils/queries.py::new_user_to_db",
+      "name": "new_user_to_db",
+      "fileId": "utils/queries.py",
+      "location": {
+        "line": 61,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": [
+        {
+          "name": "user_choice",
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "utils/queries.py::get_user_stock",
+      "name": "get_user_stock",
+      "fileId": "utils/queries.py",
+      "location": {
+        "line": 84,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": [
+        {
+          "name": "login_",
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "utils/queries.py::post_user_stock",
+      "name": "post_user_stock",
+      "fileId": "utils/queries.py",
+      "location": {
+        "line": 97,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": [
+        {
+          "name": "login_",
+          "optional": false
+        },
+        {
+          "name": "ticker",
+          "optional": false
+        },
+        {
+          "name": "purchase_date",
+          "optional": false
+        },
+        {
+          "name": "quantity",
+          "optional": false
+        },
+        {
+          "name": "purchase_price",
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "utils/queries.py::get_user_crypto",
+      "name": "get_user_crypto",
+      "fileId": "utils/queries.py",
+      "location": {
+        "line": 115,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": [
+        {
+          "name": "login_",
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "utils/queries.py::post_user_crypto",
+      "name": "post_user_crypto",
+      "fileId": "utils/queries.py",
+      "location": {
+        "line": 128,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": [
+        {
+          "name": "login_",
+          "optional": false
+        },
+        {
+          "name": "ticker",
+          "optional": false
+        },
+        {
+          "name": "purchase_date",
+          "optional": false
+        },
+        {
+          "name": "quantity",
+          "optional": false
+        },
+        {
+          "name": "purchase_price",
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "utils/queries.py::get_user_deposit",
+      "name": "get_user_deposit",
+      "fileId": "utils/queries.py",
+      "location": {
+        "line": 146,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": [
+        {
+          "name": "login_",
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "utils/queries.py::post_user_deposit",
+      "name": "post_user_deposit",
+      "fileId": "utils/queries.py",
+      "location": {
+        "line": 155,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": [
+        {
+          "name": "login_",
+          "optional": false
+        },
+        {
+          "name": "df_deposit",
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "utils/queries.py::get_user_bonds",
+      "name": "get_user_bonds",
+      "fileId": "utils/queries.py",
+      "location": {
+        "line": 179,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": [
+        {
+          "name": "login_",
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "utils/queries.py::post_user_bonds",
+      "name": "post_user_bonds",
+      "fileId": "utils/queries.py",
+      "location": {
+        "line": 192,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": [
+        {
+          "name": "login_",
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "utils/queries.py::get_flats_for_sale",
+      "name": "get_flats_for_sale",
+      "fileId": "utils/queries.py",
+      "location": {
+        "line": 207,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": []
+    },
+    {
+      "id": "utils/queries.py::post_trans_data",
+      "name": "post_trans_data",
+      "fileId": "utils/queries.py",
+      "location": {
+        "line": 216,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": []
+    },
+    {
+      "id": "utils/queries.py::get_trans_data",
+      "name": "get_trans_data",
+      "fileId": "utils/queries.py",
+      "location": {
+        "line": 234,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": []
+    },
+    {
+      "id": "utils/queries.py::get_last_available_price_from_db",
+      "name": "get_last_available_price_from_db",
+      "fileId": "utils/queries.py",
+      "location": {
+        "line": 243,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": []
+    },
+    {
+      "id": "utils/queries.py::clean_fx_table",
+      "name": "clean_fx_table",
+      "fileId": "utils/queries.py",
+      "location": {
+        "line": 251,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": []
+    },
+    {
+      "id": "utils/queries.py::append_to_fx_table",
+      "name": "append_to_fx_table",
+      "fileId": "utils/queries.py",
+      "location": {
+        "line": 262,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": [
+        {
+          "name": "df_with_newly_fx_rates",
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "utils/trading.py::trading_yfin",
+      "name": "trading_yfin",
+      "fileId": "utils/trading.py",
+      "location": {
+        "line": 13,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": [
+        {
+          "name": "tickers",
+          "optional": false
+        },
+        {
+          "name": "start_date",
+          "optional": false
+        },
+        {
+          "name": "end_date",
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "utils/trading.py::trading_yfin_2",
+      "name": "trading_yfin_2",
+      "fileId": "utils/trading.py",
+      "location": {
+        "line": 17,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": [
+        {
+          "name": "ticker_symbol",
+          "optional": false
+        },
+        {
+          "name": "start_date",
+          "optional": false
+        },
+        {
+          "name": "end_date",
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "utils/trading.py::get_crypto_data",
+      "name": "get_crypto_data",
+      "fileId": "utils/trading.py",
+      "location": {
+        "line": 25,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": [
+        {
+          "name": "ticker",
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "utils/trading.py::trading_csv_user_load",
+      "name": "trading_csv_user_load",
+      "fileId": "utils/trading.py",
+      "location": {
+        "line": 44,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": []
+    },
+    {
+      "id": "utils/web_scrap.py::gratka",
+      "name": "gratka",
+      "fileId": "utils/web_scrap.py",
+      "location": {
+        "line": 29,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": [
+        {
+          "name": "user_choice_option_1",
+          "optional": false
+        },
+        {
+          "name": "user_choice_option_3",
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "utils/web_scrap.py::olx",
+      "name": "olx",
+      "fileId": "utils/web_scrap.py",
+      "location": {
+        "line": 183,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": [
+        {
+          "name": "user_choice_option_1",
+          "optional": false
+        },
+        {
+          "name": "user_choice_option_3",
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "utils/web_scrap.py::otodom",
+      "name": "otodom",
+      "fileId": "utils/web_scrap.py",
+      "location": {
+        "line": 301,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": [
+        {
+          "name": "user_choice_option_1",
+          "optional": false
+        },
+        {
+          "name": "user_choice_option_3",
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "app.py::onSearch",
+      "name": "onSearch",
+      "fileId": "app.py",
+      "location": {
+        "line": 54,
+        "column": 0
+      },
+      "exported": true,
+      "async": false,
+      "parameters": [
+        {
+          "name": "opt",
+          "optional": false
+        }
+      ]
+    }
+  ],
+  "types": [],
+  "enums": [],
+  "variables": [
+    {
+      "id": "pages/home.py::translations",
+      "name": "translations",
+      "fileId": "pages/home.py",
+      "location": {
+        "line": 15,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "pages/home.py::uploaded_files",
+      "name": "uploaded_files",
+      "fileId": "pages/home.py",
+      "location": {
+        "line": 30,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "pages/monthly.py::fx_rates_",
+      "name": "fx_rates_",
+      "fileId": "pages/monthly.py",
+      "location": {
+        "line": 13,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "pages/monthly.py::translations",
+      "name": "translations",
+      "fileId": "pages/monthly.py",
+      "location": {
+        "line": 27,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "pages/new_user.py::lang",
+      "name": "lang",
+      "fileId": "pages/new_user.py",
+      "location": {
+        "line": 13,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "pages/new_user.py::lang_selection",
+      "name": "lang_selection",
+      "fileId": "pages/new_user.py",
+      "location": {
+        "line": 14,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "pages/new_user.py::translations",
+      "name": "translations",
+      "fileId": "pages/new_user.py",
+      "location": {
+        "line": 23,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "pages/new_user.py::Trading",
+      "name": "Trading",
+      "fileId": "pages/new_user.py",
+      "location": {
+        "line": 49,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "pages/new_user.py::real_estate",
+      "name": "real_estate",
+      "fileId": "pages/new_user.py",
+      "location": {
+        "line": 50,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "pages/new_user.py::user_choice",
+      "name": "user_choice",
+      "fileId": "pages/new_user.py",
+      "location": {
+        "line": 52,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "pages/overview.py::df",
+      "name": "df",
+      "fileId": "pages/overview.py",
+      "location": {
+        "line": 17,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "pages/overview.py::months_names",
+      "name": "months_names",
+      "fileId": "pages/overview.py",
+      "location": {
+        "line": 28,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "pages/overview.py::months",
+      "name": "months",
+      "fileId": "pages/overview.py",
+      "location": {
+        "line": 29,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "pages/overview.py::months2",
+      "name": "months2",
+      "fileId": "pages/overview.py",
+      "location": {
+        "line": 31,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "pages/overview.py::list_",
+      "name": "list_",
+      "fileId": "pages/overview.py",
+      "location": {
+        "line": 34,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "pages/real_estates.py::translations",
+      "name": "translations",
+      "fileId": "pages/real_estates.py",
+      "location": {
+        "line": 62,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "pages/real_estates.py::gratka",
+      "name": "gratka",
+      "fileId": "pages/real_estates.py",
+      "location": {
+        "line": 104,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "pages/real_estates.py::otodom",
+      "name": "otodom",
+      "fileId": "pages/real_estates.py",
+      "location": {
+        "line": 105,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "pages/real_estates.py::olx",
+      "name": "olx",
+      "fileId": "pages/real_estates.py",
+      "location": {
+        "line": 106,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "pages/real_estates.py::user_choice_webscrap",
+      "name": "user_choice_webscrap",
+      "fileId": "pages/real_estates.py",
+      "location": {
+        "line": 108,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "pages/real_estates.py::dfColumns",
+      "name": "dfColumns",
+      "fileId": "pages/real_estates.py",
+      "location": {
+        "line": 120,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "pages/trading_v2.py::translations",
+      "name": "translations",
+      "fileId": "pages/trading_v2.py",
+      "location": {
+        "line": 37,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "pages/trading_v2.py::uploaded_files",
+      "name": "uploaded_files",
+      "fileId": "pages/trading_v2.py",
+      "location": {
+        "line": 58,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "pages/trading.py::columns",
+      "name": "columns",
+      "fileId": "pages/trading.py",
+      "location": {
+        "line": 43,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "pages/trading.py::column_config",
+      "name": "column_config",
+      "fileId": "pages/trading.py",
+      "location": {
+        "line": 44,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "pages/trading.py::modified_df",
+      "name": "modified_df",
+      "fileId": "pages/trading.py",
+      "location": {
+        "line": 46,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "pages/trading.py::modified_df",
+      "name": "modified_df",
+      "fileId": "pages/trading.py",
+      "location": {
+        "line": 49,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "pages/trading.py::translations",
+      "name": "translations",
+      "fileId": "pages/trading.py",
+      "location": {
+        "line": 51,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "pages/trading.py::con",
+      "name": "con",
+      "fileId": "pages/trading.py",
+      "location": {
+        "line": 77,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "pages/trading.py::cursor",
+      "name": "cursor",
+      "fileId": "pages/trading.py",
+      "location": {
+        "line": 78,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "pages/trading.py::df_portfolio",
+      "name": "df_portfolio",
+      "fileId": "pages/trading.py",
+      "location": {
+        "line": 80,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "pages/yearly.py::fx_rates_",
+      "name": "fx_rates_",
+      "fileId": "pages/yearly.py",
+      "location": {
+        "line": 13,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "pages/yearly.py::translations",
+      "name": "translations",
+      "fileId": "pages/yearly.py",
+      "location": {
+        "line": 31,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "utils/fx_rates.py::DB_PATH",
+      "name": "DB_PATH",
+      "fileId": "utils/fx_rates.py",
+      "location": {
+        "line": 6,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "utils/fx_rates.py::SCHEMA_PATH",
+      "name": "SCHEMA_PATH",
+      "fileId": "utils/fx_rates.py",
+      "location": {
+        "line": 7,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "utils/queries.py::DB_PATH",
+      "name": "DB_PATH",
+      "fileId": "utils/queries.py",
+      "location": {
+        "line": 6,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "utils/queries.py::SCHEMA_PATH",
+      "name": "SCHEMA_PATH",
+      "fileId": "utils/queries.py",
+      "location": {
+        "line": 7,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "utils/web_scrap.py::options",
+      "name": "options",
+      "fileId": "utils/web_scrap.py",
+      "location": {
+        "line": 19,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "utils/web_scrap.py::service",
+      "name": "service",
+      "fileId": "utils/web_scrap.py",
+      "location": {
+        "line": 25,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "app.py::lang",
+      "name": "lang",
+      "fileId": "app.py",
+      "location": {
+        "line": 25,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "app.py::lang_selection",
+      "name": "lang_selection",
+      "fileId": "app.py",
+      "location": {
+        "line": 26,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "app.py::translations",
+      "name": "translations",
+      "fileId": "app.py",
+      "location": {
+        "line": 29,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "app.py::username",
+      "name": "username",
+      "fileId": "app.py",
+      "location": {
+        "line": 59,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "app.py::password",
+      "name": "password",
+      "fileId": "app.py",
+      "location": {
+        "line": 60,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "app.py::df_users",
+      "name": "df_users",
+      "fileId": "app.py",
+      "location": {
+        "line": 65,
+        "column": 0
+      },
+      "exported": true
+    },
+    {
+      "id": "restricted.py::key",
+      "name": "key",
+      "fileId": "restricted.py",
+      "location": {
+        "line": 1,
+        "column": 0
+      },
+      "exported": true
+    }
+  ]
+}

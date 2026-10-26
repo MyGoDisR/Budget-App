@@ -7,11 +7,6 @@ import os
 import utils.finance as finance
 import utils.navigation as navigation
 import requests
-from forex_python.converter import CurrencyRates
-from forex_python.bitcoin import BtcConverter
-c = CurrencyRates()
-#PLN_USD = c.get_rate('PLN', 'USD')
-#PLN_EUR = c.get_rate('PLN', 'EUR')
 
 # Security 
 if "role_" not in st.session_state:
@@ -62,7 +57,7 @@ else:
     df['Year-Month'] = (df['Year']).astype(str) + '-' +(df['Month']).astype(str)
  
     ########################################################################################## Title and Description
-    st.title(translations["title"][st.session_state.lang])
+    st.header(translations["title"][st.session_state.lang], divider="gray")
     st.write(translations["filtered_title"][st.session_state.lang])
 
     curr = ["PLN", "EUR", "USD"]
@@ -116,11 +111,11 @@ else:
     dataframe_df['Date'] = dataframe_df['Date'].dt.date
 
     # Display the filtered data
-    st.write(f"### {translations["sel_trans"][st.session_state.lang]}")
+    st.write(f'### {translations["sel_trans"][st.session_state.lang]}')
     st.dataframe(dataframe_df[['Date','Desc','Tags','Amount']], use_container_width=True)
 
     # Line chart - Running balance
-    st.write(f"### {translations["title_1"][st.session_state.lang]}")
+    st.write(f'### {translations["title_1"][st.session_state.lang]}')
     df['Week'] = df['Date'].dt.isocalendar().week
     chart_data = df[df['Tags'].isin(categories)].groupby('Week')['Amount'].sum().reset_index()
 
