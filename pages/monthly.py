@@ -52,8 +52,9 @@ df['Date'] = pd.to_datetime(df['Date'])
 df["Day"] = df["Date"].dt.day
 df['Month'] = df['Date'].dt.month
 df['Year'] = df['Date'].dt.year
+df["Year-Month"] = pd.to_datetime(df['Year'].astype(str) + '-' + df['Month'].astype(str), format='%Y-%m').dt.strftime('%Y-%m')
 df['WeekNo'] = df['Date'].dt.isocalendar().week
-
+df['Month'] = df['Date'].dt.strftime('%m')
 
 st.header(translations["title"][st.session_state.lang], divider='grey')
 st.write('')
@@ -73,31 +74,31 @@ months_names = {
   "dec":{"ENG":"December","POL":"Grudzień"},
 }
 
-months = {months_names["jan"][st.session_state.lang]:1,
-          months_names["feb"][st.session_state.lang]:2,
-          months_names["mar"][st.session_state.lang]:3,
-          months_names["apr"][st.session_state.lang]:4,
-          months_names["may"][st.session_state.lang]:5,
-          months_names["jun"][st.session_state.lang]:6,
-          months_names["jul"][st.session_state.lang]:7,
-          months_names["aug"][st.session_state.lang]:8,
-          months_names["sep"][st.session_state.lang]:9,
-          months_names["oct"][st.session_state.lang]:10,
-          months_names["nov"][st.session_state.lang]:11,
-          months_names["dec"][st.session_state.lang]:12}
+months = {months_names["jan"][st.session_state.lang]:'01',
+          months_names["feb"][st.session_state.lang]:'02',
+          months_names["mar"][st.session_state.lang]:'03',
+          months_names["apr"][st.session_state.lang]:'04',
+          months_names["may"][st.session_state.lang]:'05',
+          months_names["jun"][st.session_state.lang]:'06',
+          months_names["jul"][st.session_state.lang]:'07',
+          months_names["aug"][st.session_state.lang]:'08',
+          months_names["sep"][st.session_state.lang]:'09',
+          months_names["oct"][st.session_state.lang]:'10',
+          months_names["nov"][st.session_state.lang]:'11',
+          months_names["dec"][st.session_state.lang]:'12'}
     
-months2 = {1:months_names["jan"][st.session_state.lang],
-          2:months_names["feb"][st.session_state.lang],
-          3:months_names["mar"][st.session_state.lang],
-          4:months_names["apr"][st.session_state.lang],
-          5:months_names["may"][st.session_state.lang],
-          6:months_names["jun"][st.session_state.lang],
-          7:months_names["jul"][st.session_state.lang],
-          8:months_names["aug"][st.session_state.lang],
-          9:months_names["sep"][st.session_state.lang],
-          10:months_names["oct"][st.session_state.lang],
-          11:months_names["nov"][st.session_state.lang],
-          12:months_names["dec"][st.session_state.lang]}
+months2 = {'01':months_names["jan"][st.session_state.lang],
+          '02':months_names["feb"][st.session_state.lang],
+          '03':months_names["mar"][st.session_state.lang],
+          '04':months_names["apr"][st.session_state.lang],
+          '05':months_names["may"][st.session_state.lang],
+          '06':months_names["jun"][st.session_state.lang],
+          '07':months_names["jul"][st.session_state.lang],
+          '08':months_names["aug"][st.session_state.lang],
+          '09':months_names["sep"][st.session_state.lang],
+          '10':months_names["oct"][st.session_state.lang],
+          '11':months_names["nov"][st.session_state.lang],
+          '12':months_names["dec"][st.session_state.lang]}
 
 list_ = [[],[],[]]
 
@@ -135,20 +136,52 @@ elif curr_selection == "USD":
   currency_icon = "$"
 else:
   currency_icon = "zł"
-
 df_curr_month = df[(df['Year']==option1) & (df['Month']==months.get(selection))]
-#if option5 == 'YTD' and min(df['Year'])
-#  df_ytd = df[(df['Year']==option1-1) & (df['Month']==months.get(selection))]
+
+list_of_month_year = df['Year-Month'].drop_duplicates().to_list()
+year_month = str(option1) + '-' + (months.get(selection))
+MTD = list_of_month_year.index(year_month)-1
+YTD = list_of_month_year.index(year_month)-12
+
+if option5 == 'MTD' and str(option1) + '-' + str(months.get(selection)) != min(df['Year-Month']):
+  df_pp = df[df['Year-Month']==df['Year-Month'].drop_duplicates().to_list()[MTD]]
+elif option5 == 'YTD' and option1 != min(df['Year']):
+  df_pp = df[df['Year-Month']==df['Year-Month'].drop_duplicates().to_list()[YTD]]
+else:
+  df_pp = pd.DataFrame()
+
+if len(df_pp) == 0:
+  KPI_list_pp = ['','','','','','']
+elif option3 == 'Var $':
+  KPI_list_pp = [
+    round(df_curr_month[df_curr_month['Tags'] != 'Inflows']['Amount'].sum() - df_pp[df_pp['Tags'] != 'Inflows']['Amount'].sum(),2),
+    round(df_curr_month[df_curr_month['Tags'] == 'Inflows']['Amount'].sum() - df_pp[df_pp['Tags'] == 'Inflows']['Amount'].sum(),2),
+    round(df_curr_month[(df_curr_month['Tags'] != 'Inflows') & (df_curr_month['Tags'] == 'Food')]['Amount'].sum() - df_pp[(df_pp['Tags'] != 'Inflows') & (df_pp['Tags'] == 'Food')]['Amount'].sum(),2),
+    round(df_curr_month[(df_curr_month['Tags'] != 'Inflows') & (df_curr_month['Tags'] == 'House appliencies')]['Amount'].sum() - df_pp[(df_pp['Tags'] != 'Inflows') & (df_pp['Tags'] == 'House appliencies')]['Amount'].sum(),2),
+    round(df_curr_month[(df_curr_month['Tags'] != 'Inflows') & (df_curr_month['Tags'] == 'Beauty')]['Amount'].sum() - df_pp[(df_pp['Tags'] != 'Inflows') & (df_pp['Tags'] == 'Beauty')]['Amount'].sum(),2),
+    round(df_curr_month[(df_curr_month['Tags'] != 'Inflows') & (df_curr_month['Tags'] == 'Others')]['Amount'].sum() - df_pp[(df_pp['Tags'] != 'Inflows') & (df_pp['Tags'] == 'Others')]['Amount'].sum(),2)
+  ]
+else:
+  KPI_list_pp = [
+    round((df_curr_month[df_curr_month['Tags'] != 'Inflows']['Amount'].sum() - df_pp[df_pp['Tags'] != 'Inflows']['Amount'].sum())/df_pp[df_pp['Tags'] != 'Inflows']['Amount'].sum(),2),
+    round((df_curr_month[df_curr_month['Tags'] == 'Inflows']['Amount'].sum() - df_pp[df_pp['Tags'] == 'Inflows']['Amount'].sum())/df_pp[df_pp['Tags'] == 'Inflows']['Amount'].sum(),2),
+    round((df_curr_month[(df_curr_month['Tags'] != 'Inflows') & (df_curr_month['Tags'] == 'Food')]['Amount'].sum() - df_pp[(df_pp['Tags'] != 'Inflows') & (df_pp['Tags'] == 'Food')]['Amount'].sum())/df_pp[(df_pp['Tags'] != 'Inflows') & (df_pp['Tags'] == 'Food')]['Amount'].sum(),2),
+    round((df_curr_month[(df_curr_month['Tags'] != 'Inflows') & (df_curr_month['Tags'] == 'House appliencies')]['Amount'].sum() - df_pp[(df_pp['Tags'] != 'Inflows') & (df_pp['Tags'] == 'House appliencies')]['Amount'].sum())/df_pp[(df_pp['Tags'] != 'Inflows') & (df_pp['Tags'] == 'House appliencies')]['Amount'].sum(),2),
+    round((df_curr_month[(df_curr_month['Tags'] != 'Inflows') & (df_curr_month['Tags'] == 'Beauty')]['Amount'].sum() - df_pp[(df_pp['Tags'] != 'Inflows') & (df_pp['Tags'] == 'Beauty')]['Amount'].sum())/df_pp[(df_pp['Tags'] != 'Inflows') & (df_pp['Tags'] == 'Beauty')]['Amount'].sum(),2),
+    round((df_curr_month[(df_curr_month['Tags'] != 'Inflows') & (df_curr_month['Tags'] == 'Others')]['Amount'].sum() - df_pp[(df_pp['Tags'] != 'Inflows') & (df_pp['Tags'] == 'Others')]['Amount'].sum())/df_pp[(df_pp['Tags'] != 'Inflows') & (df_pp['Tags'] == 'Others')]['Amount'].sum(),2)
+  ]
+
 
 # KPI's
 KPI_list = [
-        [translations["expenses"][st.session_state.lang], df_curr_month[df_curr_month['Tags'] != 'Inflows']['Amount'].sum()],
-        [translations["income"][st.session_state.lang], df_curr_month[df_curr_month['Tags'] == 'Inflows']['Amount'].sum()],
-        [translations["food_e"][st.session_state.lang], df_curr_month[(df_curr_month['Tags'] != 'Inflows') & (df_curr_month['Tags'] == 'Food')]['Amount'].sum()],
-        [translations["house_e"][st.session_state.lang], df_curr_month[(df_curr_month['Tags'] != 'Inflows') & (df_curr_month['Tags'] == 'House appliencies')]['Amount'].sum()],
-        [translations["beauty_e"][st.session_state.lang], df_curr_month[(df_curr_month['Tags'] != 'Inflows') & (df_curr_month['Tags'] == 'Beauty')]['Amount'].sum()],
-        [translations["other_e"][st.session_state.lang], df_curr_month[(df_curr_month['Tags'] != 'Inflows') & (df_curr_month['Tags'] == 'Others')]['Amount'].sum()]
+  [translations["expenses"][st.session_state.lang], df_curr_month[df_curr_month['Tags'] != 'Inflows']['Amount'].sum()],
+  [translations["income"][st.session_state.lang], df_curr_month[df_curr_month['Tags'] == 'Inflows']['Amount'].sum()],
+  [translations["food_e"][st.session_state.lang], df_curr_month[(df_curr_month['Tags'] != 'Inflows') & (df_curr_month['Tags'] == 'Food')]['Amount'].sum()],
+  [translations["house_e"][st.session_state.lang], df_curr_month[(df_curr_month['Tags'] != 'Inflows') & (df_curr_month['Tags'] == 'House appliencies')]['Amount'].sum()],
+  [translations["beauty_e"][st.session_state.lang], df_curr_month[(df_curr_month['Tags'] != 'Inflows') & (df_curr_month['Tags'] == 'Beauty')]['Amount'].sum()],
+  [translations["other_e"][st.session_state.lang], df_curr_month[(df_curr_month['Tags'] != 'Inflows') & (df_curr_month['Tags'] == 'Others')]['Amount'].sum()]
 ]
+
 
 # There will be a KPI's which gives the rough indicator
 row1 = st.columns(3)
@@ -156,10 +189,12 @@ row2 = st.columns(3)
 
 for index, col in enumerate(row1 + row2):
   title = col.container(height=120)
-  title.metric(KPI_list[index][0], str(round(KPI_list[index][1],2)) + " " + currency_icon)
+  title.metric(KPI_list[index][0], str(round(KPI_list[index][1],2)) + " " + currency_icon, KPI_list_pp[index], delta_color="inverse")
 
 # Filters based on Tags 
-categories = st.multiselect(translations["sel_tags"][st.session_state.lang], options=df_curr_month['Tags'].unique(), default=df_curr_month['Tags'].unique(), key=f'type_filter_11')
+categories = st.multiselect(translations["sel_tags"][st.session_state.lang], options=df_curr_month['Tags'].unique(), default=df_curr_month['Tags'].unique(), key='type_filter_11')
+if len(categories) == 0:
+
 df_filtered = df_curr_month[df_curr_month['Tags'].isin(categories)].iloc[:,1:]
 df_filtered['Day_name'] = df_filtered['Date'].dt.strftime('%a')
 df_filtered['Date'] = df_filtered['Date'].dt.strftime('%Y-%m-%d')
@@ -182,7 +217,7 @@ chart = alt.Chart(df_bar_chart).mark_bar().encode(
 st.altair_chart(chart, use_container_width=True)
 
 st.write(f'### {translations["title_3"][st.session_state.lang]}')
-#df_filtered['Day_name'] = df_filtered['Date'].dt.strftime('%a')
+
 df_table = df_filtered[df_filtered['Tags'] != "Inflows"]
 df_table['Date'] = pd.to_datetime(df_table['Date']).dt.date
 spend_map = df_table.groupby('Date')['Amount'].sum().to_dict()
@@ -203,7 +238,7 @@ st.altair_chart(chart, use_container_width=True)
 df_cal_month = df_filtered[df_filtered['Month'] == months.get(selection)]
 df_cal_month.reset_index(drop=True, inplace=True)
 year = df_cal_month['Year'][0]
-month = df_cal_month['Month'][0]
+month = int(df_cal_month['Month'][0])
 days_in_month = calendar.monthrange(year, month)[1]
 dates = [date(year, month, day) for day in range(1, days_in_month + 1)]
 
