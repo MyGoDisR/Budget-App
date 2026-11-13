@@ -12,7 +12,6 @@ import requests
 if "role_" not in st.session_state:
     st.switch_page("app.py")
 
-
 if "lang" not in st.session_state:
     st.session_state.lang = 'ENG'
     lang_number = 0
@@ -26,7 +25,6 @@ navigation.menu()
 
 translations = {
     "title": {"ENG": "Budget Overview", "POL": "Ogólny zarys budżetu"},
-    "filtered_title": {"ENG": "Filter your transactions and view insights.", "POL": "Filtruj swoje transakcje and zobacz wnioski"},
     "sel_curr": {"ENG": "Currency", "POL": "Waluta"},
     "sel_year": {"ENG": "Choose Year:", "POL": "Wybierz rok:"},
     "expenses": {"ENG": "Overall Spending", "POL": "Ogólne wydatki"},
@@ -51,17 +49,29 @@ else:
 
     df['Date'] = pd.to_datetime(df['Date'])
     df["Day"] = df["Date"].dt.day
-    df['Month'] = df['Date'].dt.month
+    df['Week'] = df['Date'].dt.strftime("%V")
+    df['Month'] = df['Date'].dt.month.apply(lambda x: f"{x:02d}")
     df['Year'] = df['Date'].dt.year
     df['No. trans'] = df['Date'].count()
     df['Year-Month'] = (df['Year']).astype(str) + '-' +(df['Month']).astype(str)
+    df['Year-Week'] = (df['Year']).astype(str) + '-' +(df['Week']).astype(str)
+
+    curr = ["PLN", "EUR", "USD"]
  
     ########################################################################################## Title and Description
     st.header(translations["title"][st.session_state.lang], divider="gray")
-    st.write(translations["filtered_title"][st.session_state.lang])
 
-    curr = ["PLN", "EUR", "USD"]
-    curr_selection = st.pills(translations["sel_curr"][st.session_state.lang], curr, selection_mode="single" )
+    filter_1, filter_2 = st.columns(2)
+
+    years = df['Year'].unique().astype(str).tolist()
+    years.append('All')
+    
+    with filter_1:
+      selection = st.selectbox("Year", years)
+        
+    with filter_2:
+      curr_selection = st.selectbox("Currency", ("PLN", "EUR", "USD"))
+
 
     if curr_selection =="EUR":
         df['Amount'] = df['Amount'] * 0.23
@@ -72,12 +82,9 @@ else:
     else:
         currency_icon = "zł"
 
-    years = df.groupby('Year')
-    selection = st.pills(translations["sel_year"][st.session_state.lang], years, selection_mode="single")
-
     # Filter the DataFrame
-    if selection != None:  
-        df = df[df['Year'] == selection].reset_index(drop=True)
+    if selection != 'All':  
+        df = df[df['Year'] == int(selection)].reset_index(drop=True)
 
     # KPI's
     KPI_list = [
@@ -116,13 +123,11 @@ else:
 
     # Line chart - Running balance
     st.write(f'### {translations["title_1"][st.session_state.lang]}')
-    df['Week'] = df['Date'].dt.isocalendar().week
-    chart_data = df[df['Tags'].isin(categories)].groupby('Week')['Amount'].sum().reset_index()
+    chart_data = df[df['Tags'].isin(categories)].groupby('Year-Week')['Amount'].sum().reset_index()
 
-    area_chart = alt.Chart(chart_data).mark_area().encode(
-        x="Week:T",
-        y="Amount:Q",
-        tooltip=['Week','Amount']
+    area_chart = alt.Chart(chart_data).mark_area(line=True, point=True).encode(
+        x="Year-Week",
+        y="Amount:Q"
     )
 
     # Display the chart in Streamlit
@@ -130,10 +135,9 @@ else:
 
     # Bar chart 
     st.write(f'### {translations["title_2"][st.session_state.lang]}')
-    df['Month'] = df['Date'].dt.month
 
     # Group by Month and Tags
-    if selection != None: 
+    if selection != 'All': 
         grouped_data = df.groupby(['Month', 'Tags'], as_index=False)['Amount'].sum()
         # Create the bar chart using Altair
         chart = alt.Chart(grouped_data[grouped_data['Tags'].isin(categories)]).mark_bar().encode(

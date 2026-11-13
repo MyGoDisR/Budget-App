@@ -2,6 +2,7 @@ import streamlit as st
 import utils.navigation as navigation
 import os
 import utils.finance as finance
+import utils.queries as qs
 
 # Security 
 if "role_" not in st.session_state:
@@ -35,8 +36,10 @@ for uploaded_file in uploaded_files:
     if suffix == 'csv':
         finance.streamlit_uploaded_file(uploaded_file)
         finance.csv_user_load()
+        qs.post_trans_data()
     elif suffix == 'pdf':
         finance.streamlit_uploaded_file(uploaded_file)
         finance.data_to_df()
+        qs.post_trans_data()
     else:
         st.write(translations["type_mess"][st.session_state.lang])

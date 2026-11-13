@@ -65,12 +65,12 @@ def new_user_to_db(user_choice):
         st.session_state['login_'],
         login_management.hash_password(st.session_state['pass_'])[1],
         login_management.hash_password(st.session_state['pass_'])[0],
-        True if 'T' in user_choice else False,
-        True if 'R' in user_choice else False
+        1 if 'T' in user_choice else False,
+        1 if 'R' in user_choice else False
     ]
         
     cursor.execute('''
-        INSERT INTO users (login_, password_, seed, trading, real_estate) 
+        INSERT INTO users (login_, password_, seed, trading, flats) 
         VALUES (?,?,?,?,?);
         ''', (login_details))
     conn.commit()
@@ -222,7 +222,7 @@ def post_flats_for_sale(df):
 def post_trans_data():
     conn = sqlite3.connect(DB_PATH, timeout=30)
     # getting to all
-    processed_files = f'Data/{st.session_state.role_}/Transactions/Processed'
+    processed_files = f'Data/{st.session_state.role_}/Processed'
     df_csv = pd.read_csv(f'{processed_files}'+'/final_output.csv')
     # foreign key column for db
     df_csv['login_'] = st.session_state.role_
@@ -231,7 +231,7 @@ def post_trans_data():
         df_csv.to_sql(name='trans', con=conn)
     else:
         df_new = pd.concat([df_sql,df_csv]).drop_duplicates(keep=False)
-        df_new.to_sql(name='trans', con=conn, if_exists='append')
+        df_new.to_sql(name='trans', con=conn, if_exists='append', index=False)
 
     conn.close()
     return 

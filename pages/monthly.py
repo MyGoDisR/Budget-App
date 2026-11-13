@@ -36,7 +36,7 @@ translations = {
     "title_1": {"ENG": "Detailed table with transactions", "POL": "Szczegółowa tablea z transakcjami"},
     "title_2": {"ENG": "Weekly Spending", "POL": "Wydatki tygodniowe"},
     "title_3": {"ENG": "Spending during week", "POL": "Wydatki w ciągu tygodnia"},
-    "title_4": {"ENG": "Spending over entire month of", "POL": "Wydatki w ciągu całego miesiąca ->"},
+    "title_4": {"ENG": "Spending over the month", "POL": "Wydatki w ciągu całego miesiąca"},
     "no_data_mes": {"ENG":"Please choose specific month", "POL":"Wybierz miesiąc aby zobaczyć analizę"}
 }
 
@@ -117,8 +117,7 @@ with filter_1:
   option1 = st.selectbox("Year", df['Year'].unique())
     
 with filter_2:
-  selection = st.selectbox("Month", list(map(months2.get, df['Month'].unique())))
-    
+  selection = st.selectbox("Month", list(map(months2.get, df[df['Year']==option1]['Month'].unique())))
 with filter_3:
   option3 = st.selectbox("Variance", ("Var $", "Var %"))
 
@@ -146,6 +145,7 @@ YTD = list_of_month_year.index(year_month)-12
 if option5 == 'MTD' and str(option1) + '-' + str(months.get(selection)) != min(df['Year-Month']):
   df_pp = df[df['Year-Month']==df['Year-Month'].drop_duplicates().to_list()[MTD]]
 elif option5 == 'YTD' and option1 != min(df['Year']):
+  df_pp = df[(df['Year']==option1) & (df['Month']==(months.get(selection)))]
   df_pp = df[df['Year-Month']==df['Year-Month'].drop_duplicates().to_list()[YTD]]
 else:
   df_pp = pd.DataFrame()
@@ -161,15 +161,35 @@ elif option3 == 'Var $':
     round(df_curr_month[(df_curr_month['Tags'] != 'Inflows') & (df_curr_month['Tags'] == 'Beauty')]['Amount'].sum() - df_pp[(df_pp['Tags'] != 'Inflows') & (df_pp['Tags'] == 'Beauty')]['Amount'].sum(),2),
     round(df_curr_month[(df_curr_month['Tags'] != 'Inflows') & (df_curr_month['Tags'] == 'Others')]['Amount'].sum() - df_pp[(df_pp['Tags'] != 'Inflows') & (df_pp['Tags'] == 'Others')]['Amount'].sum(),2)
   ]
-else:
+elif option3 == 'Var %':
+  if df_pp[df_pp['Tags'] != 'Inflows']['Amount'].sum() == 0:
+    k1 = ''
+  else:
+    k1 = f"{round((df_curr_month[df_curr_month['Tags'] != 'Inflows']['Amount'].sum() - df_pp[df_pp['Tags'] != 'Inflows']['Amount'].sum())/df_pp[df_pp['Tags'] != 'Inflows']['Amount'].sum() * 100)} %"
+  if df_pp[df_pp['Tags'] == 'Inflows']['Amount'].sum() == 0: 
+    k2 = ''
+  else:
+    k2= f"{round((df_curr_month[df_curr_month['Tags'] == 'Inflows']['Amount'].sum() - df_pp[df_pp['Tags'] == 'Inflows']['Amount'].sum())/df_pp[df_pp['Tags'] == 'Inflows']['Amount'].sum() * 100)} %"
+  if df_pp[(df_pp['Tags'] != 'Inflows') & (df_pp['Tags'] == 'Food')]['Amount'].sum() == 0:
+    k3 = ''
+  else:
+    k3 = f"{round((df_curr_month[(df_curr_month['Tags'] != 'Inflows') & (df_curr_month['Tags'] == 'Food')]['Amount'].sum() - df_pp[(df_pp['Tags'] != 'Inflows') & (df_pp['Tags'] == 'Food')]['Amount'].sum())/df_pp[(df_pp['Tags'] != 'Inflows') & (df_pp['Tags'] == 'Food')]['Amount'].sum() * 100)} %"
+  if df_pp[(df_pp['Tags'] != 'Inflows') & (df_pp['Tags'] == 'House appliencies')]['Amount'].sum() == 0:
+    k4 = ''
+  else:
+    k4 = f"{round((df_curr_month[(df_curr_month['Tags'] != 'Inflows') & (df_curr_month['Tags'] == 'House appliencies')]['Amount'].sum() - df_pp[(df_pp['Tags'] != 'Inflows') & (df_pp['Tags'] == 'House appliencies')]['Amount'].sum())/df_pp[(df_pp['Tags'] != 'Inflows') & (df_pp['Tags'] == 'House appliencies')]['Amount'].sum() * 100)} %"
+  if df_pp[(df_pp['Tags'] != 'Inflows') & (df_pp['Tags'] == 'Beauty')]['Amount'].sum() == 0:
+    k5 = ''
+  else:
+    k5 = f"{round((df_curr_month[(df_curr_month['Tags'] != 'Inflows') & (df_curr_month['Tags'] == 'Beauty')]['Amount'].sum() - df_pp[(df_pp['Tags'] != 'Inflows') & (df_pp['Tags'] == 'Beauty')]['Amount'].sum())/df_pp[(df_pp['Tags'] != 'Inflows') & (df_pp['Tags'] == 'Beauty')]['Amount'].sum() * 100)} %"
+  if df_pp[(df_pp['Tags'] != 'Inflows') & (df_pp['Tags'] == 'Others')]['Amount'].sum() == 0:
+    k6 = ''
+  else:
+    k6 = f"{round((df_curr_month[(df_curr_month['Tags'] != 'Inflows') & (df_curr_month['Tags'] == 'Others')]['Amount'].sum() - df_pp[(df_pp['Tags'] != 'Inflows') & (df_pp['Tags'] == 'Others')]['Amount'].sum())/df_pp[(df_pp['Tags'] != 'Inflows') & (df_pp['Tags'] == 'Others')]['Amount'].sum() * 100)} %"
+  
   KPI_list_pp = [
-    round((df_curr_month[df_curr_month['Tags'] != 'Inflows']['Amount'].sum() - df_pp[df_pp['Tags'] != 'Inflows']['Amount'].sum())/df_pp[df_pp['Tags'] != 'Inflows']['Amount'].sum(),2),
-    round((df_curr_month[df_curr_month['Tags'] == 'Inflows']['Amount'].sum() - df_pp[df_pp['Tags'] == 'Inflows']['Amount'].sum())/df_pp[df_pp['Tags'] == 'Inflows']['Amount'].sum(),2),
-    round((df_curr_month[(df_curr_month['Tags'] != 'Inflows') & (df_curr_month['Tags'] == 'Food')]['Amount'].sum() - df_pp[(df_pp['Tags'] != 'Inflows') & (df_pp['Tags'] == 'Food')]['Amount'].sum())/df_pp[(df_pp['Tags'] != 'Inflows') & (df_pp['Tags'] == 'Food')]['Amount'].sum(),2),
-    round((df_curr_month[(df_curr_month['Tags'] != 'Inflows') & (df_curr_month['Tags'] == 'House appliencies')]['Amount'].sum() - df_pp[(df_pp['Tags'] != 'Inflows') & (df_pp['Tags'] == 'House appliencies')]['Amount'].sum())/df_pp[(df_pp['Tags'] != 'Inflows') & (df_pp['Tags'] == 'House appliencies')]['Amount'].sum(),2),
-    round((df_curr_month[(df_curr_month['Tags'] != 'Inflows') & (df_curr_month['Tags'] == 'Beauty')]['Amount'].sum() - df_pp[(df_pp['Tags'] != 'Inflows') & (df_pp['Tags'] == 'Beauty')]['Amount'].sum())/df_pp[(df_pp['Tags'] != 'Inflows') & (df_pp['Tags'] == 'Beauty')]['Amount'].sum(),2),
-    round((df_curr_month[(df_curr_month['Tags'] != 'Inflows') & (df_curr_month['Tags'] == 'Others')]['Amount'].sum() - df_pp[(df_pp['Tags'] != 'Inflows') & (df_pp['Tags'] == 'Others')]['Amount'].sum())/df_pp[(df_pp['Tags'] != 'Inflows') & (df_pp['Tags'] == 'Others')]['Amount'].sum(),2)
-  ]
+    k1,k2,k3,k4,k5,k6
+   ]
 
 
 # KPI's
@@ -193,7 +213,7 @@ for index, col in enumerate(row1 + row2):
 
 # Filters based on Tags 
 categories = st.multiselect(translations["sel_tags"][st.session_state.lang], options=df_curr_month['Tags'].unique(), default=df_curr_month['Tags'].unique(), key='type_filter_11')
-if len(categories) == 0:
+#if len(categories) == 0:
 
 df_filtered = df_curr_month[df_curr_month['Tags'].isin(categories)].iloc[:,1:]
 df_filtered['Day_name'] = df_filtered['Date'].dt.strftime('%a')
@@ -261,7 +281,7 @@ def extract_amount(cell):
   except:
     return None
         
-st.write(f'### {translations["title_4"][st.session_state.lang]} {year}-{selection}')
+st.write(f'### {translations["title_4"][st.session_state.lang]}')
       
 if curr_selection =="EUR":
   heatmap_df = calendar_df.applymap(extract_amount)

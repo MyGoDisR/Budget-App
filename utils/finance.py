@@ -3,11 +3,15 @@ import numpy as np
 from pypdf import PdfReader
 from os import listdir
 import os
+from pathlib import Path
 import streamlit as st
 
 import fitz
 import pathlib
 import re
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+DATA_DIR = PROJECT_ROOT / "Data"
 
 #### PDF data to tabular form ###########################################################################################################################################
 
